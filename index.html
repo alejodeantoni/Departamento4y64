@@ -413,4 +413,112 @@
 
   function renderizarTodo() {
     Object.keys(baseDatos).forEach(cat => {
-      const container = document.getElementById(`container-${
+      const container = document.getElementById(`container-${cat}`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      if(baseDatos[cat].length === 0) {
+        container.innerHTML = `<p style="font-size:12px; color:var(--gray-text); font-style:italic; padding: 5px 0;">No hay lugares guardados en esta categoría aún.</p>`;
+        return;
+      }
+
+      baseDatos[cat].forEach(item => {
+        let svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`;
+        if(['restaurantes','comidas'].includes(cat)) svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>`;
+        if(cat === 'pizzas') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 19.8h20L12 2z"/></svg>`;
+        if(cat === 'supers') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>`;
+        if(['farmacias','urgencias'].includes(cat)) svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
+
+        let starSpan = item.stars ? `<span class="stars">★ ${item.stars}</span>` : '';
+        let callBtn = item.tel ? `<a class="call-btn" href="tel:${item.tel}"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Llamar</a>` : '';
+        let mapsBtn = item.maps ? `<a class="map-btn" href="${item.maps}" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Cómo llegar</a>` : '';
+
+        let panelEsVisible = document.getElementById('config-panel').style.display === 'block';
+        let deleteBtn = panelEsVisible ? `<br><button class="btn-danger" onclick="eliminarItem('${cat}', ${item.id})">🗑️ Eliminar</button>` : '';
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-icon ${item.color}">${svgIcon}</div>
+          <div class="card-body">
+            <div class="card-name">${item.nombre}</div>
+            <div class="card-meta">${starSpan}<span class="badge b-green">${item.b1}</span><span class="badge b-gray">${item.b2}</span></div>
+            <p class="card-tip">${item.desc}</p>
+            ${mapsBtn} ${callBtn}
+            ${deleteBtn}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    });
+  }
+
+  function agregarItem(e) {
+    e.preventDefault();
+    const cat = document.getElementById('form-cat').value;
+    const nuevo = {
+      id: Date.now(),
+      nombre: document.getElementById('form-nombre').value,
+      color: document.getElementById('form-color').value,
+      stars: document.getElementById('form-stars').value,
+      b1: document.getElementById('form-badge1').value,
+      b2: document.getElementById('form-badge2').value,
+      desc: document.getElementById('form-desc').value,
+      maps: document.getElementById('form-maps').value,
+      tel: document.getElementById('form-tel').value
+    };
+
+    baseDatos[cat].push(nuevo);
+    guardarDB();
+    document.getElementById('admin-form').reset();
+    document.getElementById('magic-url').value = "";
+    alert('¡Guardado con éxito en la pestaña elegida!');
+  }
+
+  function eliminarItem(cat, id) {
+    if(confirm('¿Seguro que quieres borrar este comercio?')) {
+      baseDatos[cat] = baseDatos[cat].filter(i => i.id !== id);
+      guardarDB();
+    }
+  }
+
+  // Desbloqueo oculto: 3 clics en "Ciudad"
+  let clickCount = 0;
+  let clickTimer;
+  document.getElementById('secret-trigger').addEventListener('click', () => {
+    clickCount++;
+    clearTimeout(clickTimer);
+    if (clickCount === 3) {
+      const panel = document.getElementById('config-panel');
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+      renderizarTodo(); 
+      if(panel.style.display === 'block') {
+        panel.scrollIntoView({ behavior: 'smooth' });
+      }
+      clickCount = 0;
+    } else {
+      clickTimer = setTimeout(() => { clickCount = 0; }, 400);
+    }
+  });
+
+  function exportarPDF() {
+    window.print();
+  }
+
+  function show(sectionId, element) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(sectionId).classList.add('active');
+    element.classList.add('active');
+    element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  renderizarTodo();
+</script>
+
+</body>
+</html>
