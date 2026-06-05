@@ -371,10 +371,16 @@ textarea.a-input{resize:vertical;min-height:80px}
         <div id="custom-places-list"><p style="font-size:13px;color:var(--text-muted)">No hay lugares personalizados aún.</p></div>
       </div>
 
-      <button class="a-btn-dl" id="download-btn" onclick="downloadHTML()">
+      <button class="a-btn-dl" id="download-btn" onclick="translateAndDownload()">
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Descargar HTML actualizado
+        <span id="dl-btn-text">Traducir y descargar HTML</span>
       </button>
+      <div id="dl-progress" style="display:none;margin-top:.75rem;background:#f0f9f4;border-radius:10px;padding:.75rem 1rem;">
+        <div style="font-size:12px;font-weight:600;color:var(--brand);margin-bottom:6px" id="dl-progress-label">Traduciendo...</div>
+        <div style="background:#d0ebd9;border-radius:20px;height:6px;overflow:hidden">
+          <div id="dl-progress-bar" style="background:var(--brand);height:6px;border-radius:20px;width:0%;transition:width .4s ease"></div>
+        </div>
+      </div>
       <button class="a-btn-sec" onclick="closeAdmin()">Cerrar sin guardar</button>
     </div>
   </div>
@@ -711,10 +717,12 @@ function renderCustom() {
     if(!el) return;
     const places=(cfg.places||[]).filter(p=>p.cat===cat);
     el.innerHTML=places.map(p=>{
+      // Use translated tip if available, fallback to Spanish
+      const tip=p[currentLang]||p.tip||'';
       const dirBtn=p.map?`<a class="map-btn" href="${p.map}" target="_blank">${NAV} ${UI[currentLang].directions}</a>`:'';
       const callBtn=p.phone?`<a class="call-btn" href="tel:${p.phone}">${CALL} ${UI[currentLang].call}</a>`:'';
       const addrBadge=p.addr?`<span class="badge bx">${p.addr}</span>`:'';
-      return `<div class="card"><div class="card-icon ci-g">${I_PIN}</div><div class="card-body"><div class="card-name">${p.name}</div><div class="card-meta">${addrBadge}</div><p class="card-tip">${p.tip||''}</p><div class="btns">${dirBtn}${callBtn}</div></div></div>`;
+      return `<div class="card"><div class="card-icon ci-g">${I_PIN}</div><div class="card-body"><div class="card-name">${p.name}</div><div class="card-meta">${addrBadge}</div><p class="card-tip">${tip}</p><div class="btns">${dirBtn}${callBtn}</div></div></div>`;
     }).join('');
   });
 }
@@ -872,8 +880,8 @@ function renderAdminList(){
 }
 
 // ── DOWNLOAD UPDATED HTML ─────────────────────────────────────────────────────
-function downloadHTML(){
-  // Read current form values
+async function translateAndDownload(){
+  // 1. Read form values into cfg
   const newPw=document.getElementById('cfg-pw').value.trim();
   cfg.title=document.getElementById('cfg-title').value.trim()||'Stay Guide';
   cfg.addr=document.getElementById('cfg-addr').value.trim()||'Calle 4 entre 64 y 65';
@@ -882,16 +890,75 @@ function downloadHTML(){
   cfg.version=document.getElementById('cfg-version').value.trim()||'1.0.0';
   if(newPw) cfg.pw=newPw;
 
-  // Get current HTML and inject updated CFG + version comment
+  const btn=document.getElementById('download-btn');
+  const prog=document.getElementById('dl-progress');
+  const label=document.getElementById('dl-progress-label');
+  const bar=document.getElementById('dl-progress-bar');
+  const btnText=document.getElementById('dl-btn-text');
+
+  // 2. If there are custom places without translations, translate them
+  const toTranslate=(cfg.places||[]).filter(p=>!p.en||!p.pt||!p.fr);
+
+  if(toTranslate.length>0){
+    btn.disabled=true;
+    prog.style.display='block';
+    label.textContent='Conectando con Claude...';
+    bar.style.width='10%';
+
+    const langs=[
+      {code:'en',name:'English'},
+      {code:'pt',name:'Portuguese'},
+      {code:'fr',name:'French'}
+    ];
+
+    for(let i=0;i<langs.length;i++){
+      const {code,name}=langs[i];
+      const needsTranslation=toTranslate.filter(p=>!p[code]);
+      if(!needsTranslation.length) continue;
+
+      label.textContent=`Traduciendo al ${name==='English'?'inglés':name==='Portuguese'?'portugués':'francés'}... (${i+1}/3)`;
+      bar.style.width=(15+(i*25))+'%';
+
+      const payload=needsTranslation.map(p=>({id:p.id,tip:p.tip}));
+      const prompt=`Translate these place descriptions to ${name}. Return ONLY a valid JSON array with same structure, no markdown, no explanation. Each object must have "id" and "tip" fields. Input: ${JSON.stringify(payload)}`;
+
+      try{
+        const r=await fetch('https://api.anthropic.com/v1/messages',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            model:'claude-sonnet-4-20250514',
+            max_tokens:2000,
+            messages:[{role:'user',content:prompt}]
+          })
+        });
+        const data=await r.json();
+        const raw=data.content?.[0]?.text||'[]';
+        const clean=raw.replace(/```json|```/g,'').trim();
+        const translated=JSON.parse(clean);
+        // Merge translations back into cfg.places
+        translated.forEach(t=>{
+          const place=cfg.places.find(p=>p.id===t.id);
+          if(place) place[code]=t.tip;
+        });
+      }catch(e){
+        console.warn(`Translation to ${code} failed, skipping`);
+        // Leave untranslated — will fall back to Spanish when rendered
+      }
+    }
+
+    bar.style.width='90%';
+    label.textContent='Generando archivo...';
+  }
+
+  // 3. Build and inject updated CFG into HTML
+  bar.style.width='95%';
   let html=document.documentElement.outerHTML;
-
-  // Update APP VERSION comment
   html=html.replace(/<!-- APP VERSION: [\d.]+ -->/,'<!-- APP VERSION: '+cfg.version+' -->');
-
-  // Replace the CFG block in the script
   const cfgStr=`const CFG = ${JSON.stringify(cfg,null,2)};`;
-  html=html.replace(/const CFG = \{[\s\S]*?\};(\s*\/\/ ──)/, cfgStr+'$1');
+  html=html.replace(/const CFG = \{[\s\S]*?\};(\s*\/\/ ──)/,cfgStr+'$1');
 
+  // 4. Download
   const blob=new Blob([html],{type:'text/html'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
@@ -899,10 +966,20 @@ function downloadHTML(){
   a.click();
   URL.revokeObjectURL(a.href);
 
-  // Apply visually
+  bar.style.width='100%';
+  label.textContent='✅ Descargado — subí el index.html a GitHub';
+  setTimeout(()=>{
+    btn.disabled=false;
+    btnText.textContent='Traducir y descargar HTML';
+    prog.style.display='none';
+    bar.style.width='0%';
+  },3000);
+
   applyConfig();
-  closeAdmin();
+  // Don't close admin so user sees the success message
 }
+
+function downloadHTML(){ translateAndDownload(); }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 applyConfig();
