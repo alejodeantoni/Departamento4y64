@@ -61,7 +61,7 @@
     display:flex; align-items:center; gap:5px; white-space:nowrap; font-size:13px; font-weight:500; padding:7px 13px; border-radius:20px; border:1.5px solid var(--gray-border); background:transparent; color:var(--gray-text); cursor:pointer; transition:all .18s; flex-shrink:0;
   }
   .tab-btn.active { background:var(--brand); border-color:var(--brand); color:#fff; }
-  .tab-btn svg { width:14px; height:14px; }
+  .tab-btn svg { width:14px; height:14px; fill:none; }
 
   /* CONTENT */
   .sections { padding:1rem 1.25rem 5rem; }
@@ -76,7 +76,7 @@
     background:var(--white); border-radius:var(--radius); border:1px solid var(--gray-border); padding:1rem; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start; position: relative;
   }
   .card-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .card-icon svg { width:20px; height:20px; }
+  .card-icon svg { width:20px; height:20px; fill:none; }
   
   .ci-green { background:var(--brand-light); } .ci-green svg { color:var(--brand); }
   .ci-amber { background:var(--accent-light); } .ci-amber svg { color:#C1602A; }
@@ -100,9 +100,9 @@
   .map-btn, .call-btn {
     display:inline-flex; align-items:center; gap:5px; margin-top:9px; font-size:12px; font-weight:500; padding:6px 13px; border-radius:20px; border:1.5px solid var(--gray-border); background:transparent; color:var(--text); cursor:pointer; text-decoration:none;
   }
-  .map-btn svg { width:13px; height:13px; color:var(--brand); }
+  .map-btn svg, .call-btn svg { width:13px; height:13px; fill:none; }
+  .map-btn svg { color:var(--brand); }
   .call-btn { border-color:var(--brand-light); background:var(--brand-light); color:var(--brand); margin-left:6px; }
-  .call-btn svg { width:13px; height:13px; }
 
   /* PANEL DE CONFIGURACIÓN OCULTO */
   #config-panel {
@@ -123,7 +123,7 @@
   /* EMERGENCY BANNER */
   .emergency-banner { background: var(--urgent); border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 10px; color: #fff; }
   .emergency-banner h3 { font-size:14px; font-weight:500; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
-  .emergency-banner h3 svg { width:16px; height:16px; }
+  .emergency-banner h3 svg { width:16px; height:16px; fill:none; }
   .em-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
   .em-item { background:rgba(255,255,255,0.15); border-radius:8px; padding:8px 10px; }
   .em-item span { display:block; font-size:11px; opacity:.8; margin-bottom:2px; }
@@ -133,6 +133,7 @@
   .tips-card, .info-card { background:var(--brand-light); border-radius:var(--radius); padding:1rem 1.1rem; margin-bottom:10px; border:1px solid rgba(82,183,136,0.25); }
   .info-card { background: #fff; border-color: var(--gray-border); }
   .tips-card h3, .info-card h3 { font-size:14px; font-weight:500; color:var(--brand); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .tips-card h3 svg, .info-card h3 svg { width:16px; height:16px; fill:none; }
   .info-card h3 { color: var(--text); } .info-card h3 svg { color: var(--brand); }
   .tips-card ul { list-style:none; }
   .tips-card ul li { font-size:13px; color:#1B5E3B; padding:4px 0; display:flex; gap:7px; align-items:flex-start; line-height:1.4; }
@@ -185,7 +186,7 @@
 
 <div class="sections">
 
-  <!-- INICIO -->
+  <!-- INICIO Fijo en HTML (No se rompe jamás) -->
   <div id="inicio" class="section active">
     <div class="tips-card">
       <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Info del departamento</h3>
@@ -199,17 +200,16 @@
     </div>
     <div class="info-card">
       <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Contacto del anfitrión</h3>
-      <div class="info-row"><span>WhatsApp</span><a href="https://wa.me/542216024488">Escribir mensaje</a></div>
+      <div class="info-row"><span>WhatsApp</span><a href="https://wa.me/542216024488" target="_blank">Escribir mensaje</a></div>
       <div class="info-row"><span>Responde en</span><span>Menos de 1 hora</span></div>
       <div class="info-row"><span>Atención</span><span>Las 24 hs</span></div>
     </div>
     <div class="info-card">
       <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Cómo llegar al depto</h3>
       <div class="info-row"><span>Dirección</span><span>Calle 4 entre 64 y 65</span></div>
-      <!-- AQUÍ ESTÁ EL TRUCO: Haz 3 clics rápidos sobre la palabra "Ciudad" -->
       <div class="info-row"><span id="secret-trigger" style="cursor:pointer; font-weight: bold; color: var(--brand);">Ciudad</span><span>La Plata, Buenos Aires</span></div>
       <div class="info-row" style="padding-bottom:0;border-bottom:none;">
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=-34.9205,-57.9536" style="margin:6px 0 0 0;">
+        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=-34.9205,-57.9536" style="margin:6px 0 0 0;" target="_blank">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Abrir en Google Maps
         </a>
       </div>
@@ -291,10 +291,10 @@
     <div id="container-urgencias"></div>
   </div>
 
-  <!-- ⚙️ PANEL DE CONFIGURACIÓN PANEL (TOTALMENTE OCULTO POR DEFECTO) -->
+  <!-- ⚙️ PANEL DE CONFIGURACIÓN OCULTO -->
   <div id="config-panel">
     <h2>Panel Secreto de Administración</h2>
-    <p style="font-size:12px; color:var(--gray-text); margin-bottom:15px;">Desde aquí puedes agregar ítems y exportar la guía.</p>
+    <p style="font-size:12px; color:var(--gray-text); margin-bottom:15px;">Desde aquí puedes agregar nuevos comercios a las pestañas y exportar la guía.</p>
     
     <div style="margin-bottom:15px; background:var(--gray-bg); padding:10px; border-radius:8px;">
       <button class="btn-admin btn-pdf" onclick="exportarPDF()">📄 Guardar Guía Completa como PDF</button>
@@ -352,7 +352,7 @@
         <input type="url" id="form-maps" required placeholder="https://www.google.com/maps/dir/...">
       </div>
       <div class="form-group">
-        <label>Teléfono (Opcional, anteponer tel: o dejar vacío)</label>
+        <label>Teléfono (Opcional, anteponer +54 o dejar vacío)</label>
         <input type="text" id="form-tel" placeholder="Ej: +542215406543">
       </div>
       <button type="submit" class="btn-admin">➕ Agregar a la Guía</button>
@@ -362,7 +362,7 @@
 </div>
 
 <script>
-  // Datos iniciales precargados por defecto si LocalStorage está vacío
+  // Base de datos inicial precargada
   const datosIniciales = {
     restaurantes: [
       { id:1, nombre:"La Bodeguita", color:"ci-green", stars:"4.0", b1:"~5 min a pie", b2:"Diag. 73 y 49", desc:"Bar histórico con cocina casera y buenas porciones. Abierto todos los días desde las 10 hs.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9213608,-57.9583465", tel:"" },
@@ -379,7 +379,7 @@
       { id:10, nombre:"La Pirucha", color:"ci-green", stars:"4.3", b1:"~12 min a pie", b2:"C. 65 404", desc:"Clásico bodegón del barrio Mondongo, porciones generosas y ambiente tranquilo. L y Mié–D.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9216022,-57.931782", tel:"" }
     ],
     pizzas: [
-      { id:11, nombre:"Pizza al Borde", color:"ci-amber", stars:"4.7", b1:"~4 min a pie", b2:"Abre hasta las 2 AM", desc:"Masa crocante rellena de cheddar en el borde. Uno de los mejores de la ciudad. Ideal para trasnoche. C. 49 882.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9196852,-57.9561035", tel:"+542215406543" },
+      { id:11, nombre:"Pizza al Borde", color:"ci-amber", stars:"4.7", b1:"~4 min a pie", b2:"Abre hasta las 2 AM", desc:"Masa crocante rellena de cheddar en el borde. Uno de los mejores de la ciudad. C. 49 882.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9196852,-57.9561035", tel:"+542215406543" },
       { id:12, nombre:"La Pizze", color:"ci-amber", stars:"4.9", b1:"~10 min a pie", b2:"C. 43 y 9", desc:"Pizza artesanal rellena con masa crujiente. Muy bien puntuado, ideal para comer ahí o pedir. Ma a D.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9115652,-57.9585522", tel:"" },
       { id:13, nombre:"Pasillo 51", color:"ci-amber", stars:"4.4", b1:"~12 min a pie", b2:"Av. 51 496", desc:"De las pizzerías más queridas de La Plata. Abierta al mediodía y noche. L a D.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9133964,-57.9466394", tel:"" },
       { id:14, nombre:"Pizza Libre La Plata", color:"ci-amber", stars:"4.1", b1:"~7 min a pie", b2:"Pizza sin límite", desc:"Pizza al corte libre. Ideal para grupos y precio económico. Ma a D noche.", maps:"https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9156024,-57.9554491", tel:"" }
@@ -430,18 +430,22 @@
       container.innerHTML = '';
 
       baseDatos[cat].forEach(item => {
-        // Selector de SVG según el tipo de color elegido
-        let svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg>`;
+        // Selector de SVG según el tipo de categoría para evitar deformaciones
+        let svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`;
         if(cat === 'restaurantes' || cat === 'comidas') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>`;
         if(cat === 'pizzas') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 19.8h20L12 2z"/></svg>`;
         if(cat === 'supers') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>`;
         if(cat === 'farmacias' || cat === 'urgencias') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
+        if(cat === 'panaderias') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>`;
+        if(cat === 'traslados') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>`;
+        if(cat === 'lavanderia') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="13" r="5"/></svg>`;
+        if(cat === 'gimnasios') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6.5 6.5h11M6.5 17.5h11"/></svg>`;
+        if(cat === 'paseos') svgIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>`;
 
         let starSpan = item.stars ? `<span class="stars">★ ${item.stars}</span>` : '';
         let callBtn = item.tel ? `<a class="call-btn" href="tel:${item.tel}"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Llamar</a>` : '';
         let mapsBtn = item.maps && item.maps !== "#" ? `<a class="map-btn" href="${item.maps}" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Cómo llegar</a>` : '';
 
-        // Si el panel de administración está visible, agregamos el botón de eliminar
         let panelEsVisible = document.getElementById('config-panel').style.display === 'block';
         let deleteBtn = panelEsVisible ? `<br><button class="btn-danger" onclick="eliminarItem('${cat}', ${item.id})">🗑️ Eliminar</button>` : '';
 
@@ -481,7 +485,7 @@
     baseDatos[cat].push(nuevo);
     guardarDB();
     document.getElementById('admin-form').reset();
-    alert('¡Lugar agregado con éxito a la pestaña!');
+    alert('¡Lugar agregado con éxito!');
   }
 
   // Eliminar un negocio
@@ -492,7 +496,7 @@
     }
   }
 
-  // 🕵️ Lógica del disparador oculto: 3 clics rápidos en "Ciudad"
+  // Lógica de los 3 clics rápidos en la palabra "Ciudad"
   let clickCount = 0;
   let clickTimer;
   document.getElementById('secret-trigger').addEventListener('click', () => {
@@ -501,7 +505,7 @@
     if (clickCount === 3) {
       const panel = document.getElementById('config-panel');
       panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-      renderizarTodo(); // Refresca para mostrar/ocultar botones de borrar
+      renderizarTodo(); 
       if(panel.style.display === 'block') {
         panel.scrollIntoView({ behavior: 'smooth' });
       }
@@ -511,13 +515,12 @@
     }
   });
 
-  // 📄 Función para generar e imprimir el PDF de manera limpia
   function exportarPDF() {
-    alert('Se abrirá la ventana de impresión. En "Destino", selecciona "Guardar como PDF" para descargarlo de forma limpia.');
+    alert('Se abrirá la ventana de impresión. En "Destino", selecciona "Guardar como PDF" para descargarlo limpio.');
     window.print();
   }
 
-  // Navegación nativa de pestañas
+  // Cambiar pestañas
   function show(sectionId, element) {
     const sections = document.querySelectorAll('.section');
     sections.forEach(sec => sec.classList.remove('active'));
@@ -530,7 +533,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Inicializar renderizado al abrir la página
+  // Renderizar al abrir
   renderizarTodo();
 </script>
 
