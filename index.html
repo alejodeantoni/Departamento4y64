@@ -386,6 +386,36 @@ textarea.a-input{resize:vertical;min-height:80px}
   </div>
 </div>
 
+<!-- TRANSLATION MODAL -->
+<div id="trans-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;overflow-y:auto;padding:1.5rem 1rem;align-items:flex-start;justify-content:center">
+  <div style="background:#fff;border-radius:20px;padding:1.5rem;max-width:480px;width:100%;margin:0 auto">
+    <h2 style="font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px">🌐 Traducir lugares</h2>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:1rem">Tus lugares necesitan traducción. Seguí estos pasos:</p>
+
+    <div style="background:var(--brand-light);border-radius:12px;padding:1rem;margin-bottom:1rem">
+      <p style="font-size:12px;font-weight:600;color:var(--brand);margin-bottom:8px">Paso 1 — Copiá este JSON</p>
+      <textarea id="trans-payload" readonly style="width:100%;font-size:11px;font-family:monospace;padding:10px;border:1.5px solid rgba(45,106,79,.25);border-radius:8px;background:#fff;resize:none;height:120px;outline:none;color:var(--text)"></textarea>
+      <button id="copy-payload-btn" onclick="copyPayload()" style="margin-top:8px;width:100%;padding:9px;background:var(--brand);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer">📋 Copiar</button>
+    </div>
+
+    <div style="background:#EBF2FF;border-radius:12px;padding:1rem;margin-bottom:1rem">
+      <p style="font-size:12px;font-weight:600;color:#1D6FA4;margin-bottom:6px">Paso 2 — Pegalo en el chat de Claude con este mensaje:</p>
+      <div style="background:#fff;border-radius:8px;padding:10px;font-size:12px;color:var(--text);line-height:1.5;border:1.5px solid rgba(29,111,164,.2)">
+        Traducí este JSON al inglés, portugués y francés. Para cada objeto agregá los campos "en", "pt" y "fr" con la traducción del campo "tip". Devolvé SOLO el JSON, sin explicación ni markdown.<br><br>
+        <em style="color:var(--text-muted)">[pegá el JSON acá]</em>
+      </div>
+    </div>
+
+    <div style="background:var(--gray);border-radius:12px;padding:1rem;margin-bottom:1rem">
+      <p style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">Paso 3 — Pegá la respuesta de Claude acá</p>
+      <textarea id="trans-result" placeholder='[{"id":123,"tip":"...","en":"...","pt":"...","fr":"..."}]' oninput="onResultPaste()" style="width:100%;font-size:11px;font-family:monospace;padding:10px;border:1.5px solid var(--border);border-radius:8px;background:#fff;resize:none;height:120px;outline:none;color:var(--text)"></textarea>
+      <button id="trans-apply-btn" onclick="applyTranslations()" style="display:none;margin-top:8px;width:100%;padding:9px;background:var(--brand);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer">✅ Aplicar y descargar HTML</button>
+    </div>
+
+    <button onclick="closeTransModal();doDownload();" style="width:100%;padding:10px;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer">Cancelar — descargar sin traducir</button>
+  </div>
+</div>
+
 <script>
 // ── CONFIG — editá acá o desde el panel ───────────────────────────────────────
 const CFG = {
@@ -890,75 +920,76 @@ async function translateAndDownload(){
   cfg.version=document.getElementById('cfg-version').value.trim()||'1.0.0';
   if(newPw) cfg.pw=newPw;
 
-  const btn=document.getElementById('download-btn');
+  const toTranslate=(cfg.places||[]).filter(p=>!p.en||!p.pt||!p.fr);
+
+  // If nothing to translate, download directly
+  if(!toTranslate.length){
+    doDownload();
+    return;
+  }
+
+  // Show translation modal
+  document.getElementById('trans-modal').style.display='flex';
+  const payload=toTranslate.map(p=>({id:p.id,name:p.name,tip:p.tip}));
+  document.getElementById('trans-payload').value=JSON.stringify(payload,null,2);
+  document.getElementById('trans-result').value='';
+  document.getElementById('trans-apply-btn').style.display='none';
+}
+
+function copyPayload(){
+  const ta=document.getElementById('trans-payload');
+  ta.select();
+  document.execCommand('copy');
+  const btn=document.getElementById('copy-payload-btn');
+  btn.textContent='✅ Copiado';
+  setTimeout(()=>btn.textContent='📋 Copiar',2000);
+}
+
+function onResultPaste(){
+  const val=document.getElementById('trans-result').value.trim();
+  document.getElementById('trans-apply-btn').style.display=val?'block':'none';
+}
+
+function applyTranslations(){
+  try{
+    const raw=document.getElementById('trans-result').value.trim();
+    const clean=raw.replace(/```json|```/g,'').trim();
+    const data=JSON.parse(clean);
+    let ok=0;
+    data.forEach(item=>{
+      const place=cfg.places.find(p=>p.id===item.id);
+      if(place){
+        if(item.en) place.en=item.en;
+        if(item.pt) place.pt=item.pt;
+        if(item.fr) place.fr=item.fr;
+        ok++;
+      }
+    });
+    document.getElementById('trans-modal').style.display='none';
+    renderCustom();
+    doDownload();
+  }catch(e){
+    alert('❌ El JSON pegado no es válido. Asegurate de pegar exactamente lo que devuelve Claude.');
+  }
+}
+
+function closeTransModal(){
+  document.getElementById('trans-modal').style.display='none';
+}
+
+function doDownload(){
   const prog=document.getElementById('dl-progress');
   const label=document.getElementById('dl-progress-label');
   const bar=document.getElementById('dl-progress-bar');
-  const btnText=document.getElementById('dl-btn-text');
+  prog.style.display='block';
+  bar.style.width='80%';
+  label.textContent='Generando archivo...';
 
-  // 2. If there are custom places without translations, translate them
-  const toTranslate=(cfg.places||[]).filter(p=>!p.en||!p.pt||!p.fr);
-
-  if(toTranslate.length>0){
-    btn.disabled=true;
-    prog.style.display='block';
-    label.textContent='Conectando con Claude...';
-    bar.style.width='10%';
-
-    const langs=[
-      {code:'en',name:'English'},
-      {code:'pt',name:'Portuguese'},
-      {code:'fr',name:'French'}
-    ];
-
-    for(let i=0;i<langs.length;i++){
-      const {code,name}=langs[i];
-      const needsTranslation=toTranslate.filter(p=>!p[code]);
-      if(!needsTranslation.length) continue;
-
-      label.textContent=`Traduciendo al ${name==='English'?'inglés':name==='Portuguese'?'portugués':'francés'}... (${i+1}/3)`;
-      bar.style.width=(15+(i*25))+'%';
-
-      const payload=needsTranslation.map(p=>({id:p.id,tip:p.tip}));
-      const prompt=`Translate these place descriptions to ${name}. Return ONLY a valid JSON array with same structure, no markdown, no explanation. Each object must have "id" and "tip" fields. Input: ${JSON.stringify(payload)}`;
-
-      try{
-        const r=await fetch('https://api.anthropic.com/v1/messages',{
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({
-            model:'claude-sonnet-4-20250514',
-            max_tokens:2000,
-            messages:[{role:'user',content:prompt}]
-          })
-        });
-        const data=await r.json();
-        const raw=data.content?.[0]?.text||'[]';
-        const clean=raw.replace(/```json|```/g,'').trim();
-        const translated=JSON.parse(clean);
-        // Merge translations back into cfg.places
-        translated.forEach(t=>{
-          const place=cfg.places.find(p=>p.id===t.id);
-          if(place) place[code]=t.tip;
-        });
-      }catch(e){
-        console.warn(`Translation to ${code} failed, skipping`);
-        // Leave untranslated — will fall back to Spanish when rendered
-      }
-    }
-
-    bar.style.width='90%';
-    label.textContent='Generando archivo...';
-  }
-
-  // 3. Build and inject updated CFG into HTML
-  bar.style.width='95%';
   let html=document.documentElement.outerHTML;
   html=html.replace(/<!-- APP VERSION: [\d.]+ -->/,'<!-- APP VERSION: '+cfg.version+' -->');
   const cfgStr=`const CFG = ${JSON.stringify(cfg,null,2)};`;
   html=html.replace(/const CFG = \{[\s\S]*?\};(\s*\/\/ ──)/,cfgStr+'$1');
 
-  // 4. Download
   const blob=new Blob([html],{type:'text/html'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
@@ -969,14 +1000,12 @@ async function translateAndDownload(){
   bar.style.width='100%';
   label.textContent='✅ Descargado — subí el index.html a GitHub';
   setTimeout(()=>{
-    btn.disabled=false;
-    btnText.textContent='Traducir y descargar HTML';
+    document.getElementById('download-btn').disabled=false;
+    document.getElementById('dl-btn-text').textContent='Traducir y descargar HTML';
     prog.style.display='none';
     bar.style.width='0%';
   },3000);
-
   applyConfig();
-  // Don't close admin so user sees the success message
 }
 
 function downloadHTML(){ translateAndDownload(); }
