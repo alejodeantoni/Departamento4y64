@@ -1,10 +1,12 @@
-<html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
-<!-- APP VERSION: 1.0.2 -->
+<!-- APP VERSION: 1.0.0 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Stay Guide · La Plata</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --brand:#1B4332;--brand2:#2D6A4F;--brand-light:#D8F3DC;
@@ -135,20 +137,7 @@ textarea.a-input{resize:vertical;min-height:80px}
   body{background:#fff}
 }
 </style>
-<style type="text/css" data-guidde-blur-css="true">
-/* Repetition and !important are needed to override host page top-level styles */
-/* CSS Variables are defined by JS */
-
-.GUIDDE-JS-BlurCandidate.GUIDDE-JS-BlurCandidate.GUIDDE-JS-BlurCandidate {
-    background-color: var(--guidde-highlight-bg) !important;
-    outline: var(--guidde-highlight-border) !important;
-}
-
-.GUIDDE-JS-AutoBlurred.GUIDDE-JS-AutoBlurred.GUIDDE-JS-AutoBlurred,
-.GUIDDE-JS-Blurred.GUIDDE-JS-Blurred.GUIDDE-JS-Blurred {
-    filter: var(--guidde-blur) !important;
-}
-</style></head>
+</head>
 <body>
 
 <div class="hero">
@@ -161,50 +150,50 @@ textarea.a-input{resize:vertical;min-height:80px}
       <button class="lang-btn" onclick="changeLang('fr',this)">FR</button>
     </div>
   </div>
-  <div class="hero-name" id="guide-title">Stay Guide<span class="version-badge" id="version-badge">v1.0.2</span></div>
+  <div class="hero-name" id="guide-title">Stay Guide<span class="version-badge" id="version-badge">v1.0.0</span></div>
   <h1 id="t-h1">Tu guía <em>local</em></h1>
   <p class="hero-sub">
-    <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg>
+    <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
     <span id="addr-text">Calle 4 entre 64 y 65 · La Plata</span>
   </p>
 </div>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="showTab('inicio',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg><span id="t-tab0">Inicio</span></button>
-  <button class="tab-btn" onclick="showTab('restaurantes',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg><span id="t-tab1">Restaurantes</span></button>
-  <button class="tab-btn" onclick="showTab('cafes',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg><span id="t-tab2">Cafés</span></button>
-  <button class="tab-btn" onclick="showTab('pizzas',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"></path></svg><span id="t-tab3">Pizzerías</span></button>
-  <button class="tab-btn" onclick="showTab('burgers',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg><span id="t-tab4">Burgers</span></button>
-  <button class="tab-btn" onclick="showTab('sushi',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg><span id="t-tab5">Sushi &amp; Asia</span></button>
-  <button class="tab-btn" onclick="showTab('heladerias',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v8m0 0C10 10 8 12 8 15a4 4 0 008 0c0-3-2-5-4-5z"></path></svg><span id="t-tab6">Heladerías</span></button>
-  <button class="tab-btn" onclick="showTab('bares',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"></path></svg><span id="t-tab7">Bares</span></button>
-  <button class="tab-btn" onclick="showTab('supers',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg><span id="t-tab8">Supers</span></button>
-  <button class="tab-btn" onclick="showTab('farmacias',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><span id="t-tab9">Farmacias</span></button>
-  <button class="tab-btn" onclick="showTab('traslados',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span id="t-tab10">Traslados</span></button>
-  <button class="tab-btn" onclick="showTab('paseos',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><circle cx="12" cy="10" r="3"></circle></svg><span id="t-tab11">Paseos</span></button>
-  <button class="tab-btn" onclick="showTab('urgencias',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg><span id="t-tab12">Urgencias</span></button>
+  <button class="tab-btn active" onclick="showTab('inicio',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span id="t-tab0">Inicio</span></button>
+  <button class="tab-btn" onclick="showTab('restaurantes',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><span id="t-tab1">Restaurantes</span></button>
+  <button class="tab-btn" onclick="showTab('cafes',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/></svg><span id="t-tab2">Cafés</span></button>
+  <button class="tab-btn" onclick="showTab('pizzas',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"/></svg><span id="t-tab3">Pizzerías</span></button>
+  <button class="tab-btn" onclick="showTab('burgers',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="16" x2="20" y2="16"/></svg><span id="t-tab4">Burgers</span></button>
+  <button class="tab-btn" onclick="showTab('sushi',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg><span id="t-tab5">Sushi & Asia</span></button>
+  <button class="tab-btn" onclick="showTab('heladerias',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v8m0 0C10 10 8 12 8 15a4 4 0 008 0c0-3-2-5-4-5z"/></svg><span id="t-tab6">Heladerías</span></button>
+  <button class="tab-btn" onclick="showTab('bares',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg><span id="t-tab7">Bares</span></button>
+  <button class="tab-btn" onclick="showTab('supers',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span id="t-tab8">Supers</span></button>
+  <button class="tab-btn" onclick="showTab('farmacias',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span id="t-tab9">Farmacias</span></button>
+  <button class="tab-btn" onclick="showTab('traslados',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span id="t-tab10">Traslados</span></button>
+  <button class="tab-btn" onclick="showTab('paseos',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="12" cy="10" r="3"/></svg><span id="t-tab11">Paseos</span></button>
+  <button class="tab-btn" onclick="showTab('urgencias',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span id="t-tab12">Urgencias</span></button>
 </div>
 
 <div class="sections">
 
 <div id="inicio" class="section active">
   <div class="info-box">
-    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span id="t-aptinfo">Info del departamento</span></h3>
-    <ul id="apt-tips-list"><li>Check-in desde las 14 hs</li><li>Check-out hasta las 11 hs</li><li>Wi-Fi: disponible en el depto</li><li>Ante cualquier problema escribí al anfitrión</li></ul>
+    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="t-aptinfo">Info del departamento</span></h3>
+    <ul id="apt-tips-list"></ul>
   </div>
   <div class="info-card">
-    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg><span id="t-contact">Contacto del anfitrión</span></h3>
+    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span id="t-contact">Contacto del anfitrión</span></h3>
     <div class="info-row"><span id="t-walabel">WhatsApp</span><a id="wa-link" href="#">Escribir mensaje</a></div>
     <div class="info-row"><span id="t-responds">Responde en</span><span id="t-resptime">Menos de 1 hora</span></div>
     <div class="info-row"><span id="t-attention">Atención</span><span id="t-atthours">Las 24 hs</span></div>
   </div>
   <div class="info-card">
-    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg><span id="t-howarrive">Cómo llegar</span></h3>
+    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span id="t-howarrive">Cómo llegar</span></h3>
     <div class="info-row"><span id="t-addrlabel">Dirección</span><span id="address-display">Calle 4 entre 64 y 65</span></div>
     <div class="info-row"><span id="t-city">Ciudad</span><span>La Plata, Buenos Aires</span></div>
     <div class="info-row" style="border:none;padding-bottom:0">
-      <a class="map-btn" id="map-main-link" href="https://www.google.com/maps/search/?api=1&amp;query=-34.9205,-57.9536" target="_blank" style="margin-top:4px">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+      <a class="map-btn" id="map-main-link" href="https://www.google.com/maps/search/?api=1&query=-34.9205,-57.9536" target="_blank" style="margin-top:4px">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
         <span id="t-openmaps">Abrir en Google Maps</span>
       </a>
     </div>
@@ -213,76 +202,76 @@ textarea.a-input{resize:vertical;min-height:80px}
 </div>
 
 <div id="restaurantes" class="section">
-  <p class="sec-label" id="t-sec-rest">Bodegones &amp; Parrillas</p>
-  <div id="rest-static"><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">Guapo Bodegón Platense</div><div class="card-meta"><span class="stars">★ 4.3</span><span class="badge bg">~5 min</span><span class="badge bx">C. 49 775</span></div><p class="card-tip">Porciones enormes para compartir — ossobuco, matambre pizza y milanesas. L–D mediodía y noche.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9173941,-57.9542328" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542216173895"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">La Bodeguita</div><div class="card-meta"><span class="stars">★ 4.0</span><span class="badge bg">~5 min</span><span class="badge bx">Diag. 73 y 49</span></div><p class="card-tip">Bar histórico estilo vintage 70s. Bondiola a la riojana, cocina casera. L–D desde las 10 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9213608,-57.9583465" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">Santo Domingo Parrilla</div><div class="card-meta"><span class="stars">★ 4.3</span><span class="badge bg">~10 min</span><span class="badge bx">Av. 13 y 61</span></div><p class="card-tip">Parrilla completa con empanadas y asado. Excelente servicio. Ideal para una noche especial.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9273466,-57.9463298" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">Bodegón 7 y 70</div><div class="card-meta"><span class="stars">★ 4.2</span><span class="badge ba">~15 min</span><span class="badge bx">Av. 7 1849</span></div><p class="card-tip">Clásico enorme y económico. Milanesa para 3 personas, costillas riojanas. Precio increíble.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9293517,-57.9302791" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">BM Casa de Comidas</div><div class="card-meta"><span class="stars">★ 4.6</span><span class="badge ba">~15 min</span><span class="badge bx">Para llevar</span></div><p class="card-tip">Platos para llevar, opciones veganas y sin gluten. Muy económico. L–V 8–16 hs, S 9–14 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.926114,-57.9598854" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"></path><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">65 Grados Veggie</div><div class="card-meta"><span class="stars">★ 4.7</span><span class="badge bg">~7 min</span><span class="badge bx">Vegetariano</span></div><p class="card-tip">Restaurante taiwanés vegetariano. Dumplings, don de hongos y sushi vegano. L–S 8–21 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9123199,-57.9505496" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
-  <div id="custom-restaurantes"><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg></div><div class="card-body"><div class="card-name">La Pirucha Restaurant</div><div class="card-meta"><span class="badge bx">65 esq. 3 - La Plata, Bs. Aires</span></div><p class="card-tip">Un lugar que cuenta historias... ⌛Desde 1940</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/place/La+Pirucha+Restaurant/@-34.9218034,-57.9349191,17z/data=!4m6!3m5!1s0x95a2e61db797a07b:0x70c68ed71b34c09f!8m2!3d-34.9216022!4d-57.931782!16s%2Fg%2F11bw4tvw6p?entry=ttu&amp;g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:221-3141415"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div></div>
+  <p class="sec-label" id="t-sec-rest">Bodegones & Parrillas</p>
+  <div id="rest-static"></div>
+  <div id="custom-restaurantes"></div>
 </div>
 <div id="cafes" class="section">
-  <p class="sec-label" id="t-sec-cafe">Specialty coffee &amp; Brunch</p>
-  <div id="cafes-static"><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">Maylo Café</div><div class="card-meta"><span class="stars">★ 4.9</span><span class="badge bg">~3 min</span><span class="badge bx">C. 48 858</span></div><p class="card-tip">El más cercano al depto. Scones de queso increíbles y café de especialidad. L–V 7:30–19:30 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9186408,-57.9564634" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542216045503"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">Folki Café y Cocina</div><div class="card-meta"><span class="stars">★ 4.8</span><span class="badge bg">~4 min</span><span class="badge bx">C. 46 779</span></div><p class="card-tip">Brunch, avocado toast, croissants y limonadas artesanales. Ma–D 9–20 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9155713,-57.9569357" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">El Fin Café</div><div class="card-meta"><span class="stars">★ 4.8</span><span class="badge bg">~12 min</span><span class="badge bx">C. 59 814</span></div><p class="card-tip">Los mejores cinnamon rolls de La Plata. Café de especialidad y ambiente tranquilo. L–S 8–20 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9241663,-57.9471346" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">YCaban</div><div class="card-meta"><span class="stars">★ 4.5</span><span class="badge bg">~10 min</span><span class="badge bx">C. 11 y 49</span></div><p class="card-tip">Café icónico de La Plata. Opciones veganas, sándwiches y menú del día. L–S 8–20 hs, D 12:30–20 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9179725,-57.9543725" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">Charola</div><div class="card-meta"><span class="stars">★ 4.2</span><span class="badge bg">~8 min</span><span class="badge bx">C. 12 755</span></div><p class="card-tip">3 pisos con terraza calefaccionada. Café, comidas y cócteles. L–D desde las 8 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9179896,-57.9571641" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"></path><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"></path></svg></div><div class="card-body"><div class="card-name">BONTÉ Boulangerie</div><div class="card-meta"><span class="stars">★ 5.0</span><span class="badge ba">~15 min</span><span class="badge bx">Av. 60 459</span></div><p class="card-tip">Panadería artesanal de culto. Croissants, schiacciata y sándwiches de almuerzo. L–V 7:30–18:30 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9181923,-57.9389199" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <p class="sec-label" id="t-sec-cafe">Specialty coffee & Brunch</p>
+  <div id="cafes-static"></div>
   <div id="custom-cafes"></div>
 </div>
 <div id="pizzas" class="section">
   <p class="sec-label" id="t-sec-pizza">Las mejores de La Plata</p>
-  <div id="pizzas-static"><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"></path></svg></div><div class="card-body"><div class="card-name">Pizza al Borde</div><div class="card-meta"><span class="stars">★ 4.7</span><span class="badge bg">~4 min</span><span class="badge bx">C. 49 882</span></div><p class="card-tip">Borde crocante relleno de cheddar. Uno de los mejores de la ciudad. Abre hasta las 4 AM.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9196852,-57.9561035" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542215406543"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"></path></svg></div><div class="card-body"><div class="card-name">La Pizze</div><div class="card-meta"><span class="stars">★ 4.9</span><span class="badge bg">~10 min</span><span class="badge bx">C. 43 y 9</span></div><p class="card-tip">Pizza artesanal rellena con masa crujiente. La mejor puntuada del centro. Ma–D.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9115652,-57.9585522" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"></path></svg></div><div class="card-body"><div class="card-name">Pasillo 51</div><div class="card-meta"><span class="stars">★ 4.4</span><span class="badge bg">~12 min</span><span class="badge bx">Av. 51 496</span></div><p class="card-tip">Ícono platense. 2 porciones + media birra a precio increíble. L–D mediodía y noche.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9133964,-57.9466394" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"></path></svg></div><div class="card-body"><div class="card-name">Pizza Libre La Plata</div><div class="card-meta"><span class="stars">★ 4.1</span><span class="badge bg">~7 min</span><span class="badge bx">C. 10 730</span></div><p class="card-tip">Tenedor libre de pizza al corte. Ideal para grupos, precio económico. Ma–D noche.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9156024,-57.9554491" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <div id="pizzas-static"></div>
   <div id="custom-pizzas"></div>
 </div>
 <div id="burgers" class="section">
   <p class="sec-label" id="t-sec-burger">Las mejores hamburguesas</p>
-  <div id="burgers-static"><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg></div><div class="card-body"><div class="card-name">Gule</div><div class="card-meta"><span class="stars">★ 4.8</span><span class="badge bg">~3 min</span><span class="badge bx">C. 46 781</span></div><p class="card-tip">Smashed burgers artesanales. La de hongos y manteca es espectacular. Terraza y cervezas craft. L–D.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9155661,-57.9567683" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542216746383"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg></div><div class="card-body"><div class="card-name">Blends Burger</div><div class="card-meta"><span class="stars">★ 4.6</span><span class="badge bg">~12 min</span><span class="badge bx">C. 10 1096</span></div><p class="card-tip">Las hamburguesas más grandes de La Plata. Hay un mural de Messi adentro. L–D.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9199708,-57.9496087" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg></div><div class="card-body"><div class="card-name">Pippi's Burger</div><div class="card-meta"><span class="stars">★ 5.0</span><span class="badge ba">~15 min</span><span class="badge bx">Av. 19 1182</span></div><p class="card-tip">Caseras y jugosas con papas de corte artesanal. Atención excelente. L–D.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9294185,-57.9572191" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542213143207"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div></div>
+  <div id="burgers-static"></div>
   <div id="custom-burgers"></div>
 </div>
 <div id="sushi" class="section">
-  <p class="sec-label" id="t-sec-sushi">Sushi &amp; Cocina asiática</p>
-  <div id="sushi-static"><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg></div><div class="card-body"><div class="card-name">OMAKAI Sushi</div><div class="card-meta"><span class="stars">★ 4.8</span><span class="badge bg">~5 min</span><span class="badge bx">Diag. 74 1433</span></div><p class="card-tip">Sushi premium a precio muy razonable. Piezas enormes. Combinado de 30 piezas. L–S.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.914851,-57.9552878" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542216977753"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg></div><div class="card-body"><div class="card-name">Akari Sushi Bar</div><div class="card-meta"><span class="stars">★ 4.6</span><span class="badge bg">~5 min</span><span class="badge bx">Diag. 74 1531</span></div><p class="card-tip">El mejor japonés de La Plata según turistas extranjeros. Sake caliente y postres increíbles.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9164903,-57.9551281" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542214831262"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg></div><div class="card-body"><div class="card-name">KOI Dumplings</div><div class="card-meta"><span class="stars">★ 4.4</span><span class="badge ba">~15 min</span><span class="badge bx">C. 22 899</span></div><p class="card-tip">Dumplings, baos, ramen y cócteles. Cocina pan-asiática con muy buena onda. L–D.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9289446,-57.9653871" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg></div><div class="card-body"><div class="card-name">Rabbit Town</div><div class="card-meta"><span class="stars">★ 4.3</span><span class="badge bg">~12 min</span><span class="badge bx">C. 54 y 4</span></div><p class="card-tip">Tteokbokki, katsu, baos y cócteles creativos. Ambiente muy original. Ma–D.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9139579,-57.9442874" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <p class="sec-label" id="t-sec-sushi">Sushi & Cocina asiática</p>
+  <div id="sushi-static"></div>
   <div id="custom-sushi"></div>
 </div>
 <div id="heladerias" class="section">
   <p class="sec-label" id="t-sec-hela">Heladerías</p>
-  <div id="heladerias-static"><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v8m0 0C10 10 8 12 8 15a4 4 0 008 0c0-3-2-5-4-5z"></path></svg></div><div class="card-body"><div class="card-name">Vipentto</div><div class="card-meta"><span class="stars">★ 4.6</span><span class="badge bg">~12 min</span><span class="badge bx">C. 4 1105</span></div><p class="card-tip">Una de las mejores heladerías de La Plata. Porciones generosas y sabores creativos. L–D desde la 1 PM.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.914705,-57.9432892" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v8m0 0C10 10 8 12 8 15a4 4 0 008 0c0-3-2-5-4-5z"></path></svg></div><div class="card-body"><div class="card-name">La Sorbetiere</div><div class="card-meta"><span class="stars">★ 4.2</span><span class="badge bg">~5 min</span><span class="badge bx">C. 11 899</span></div><p class="card-tip">Heladería con rooftop bar con vista a la Catedral y Plaza Moreno. Increíble al atardecer.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9185679,-57.9539423" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <div id="heladerias-static"></div>
   <div id="custom-heladerias"></div>
 </div>
 <div id="bares" class="section">
-  <p class="sec-label" id="t-sec-bar">Bares &amp; Cervecerías</p>
-  <div id="bares-static"><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"></path></svg></div><div class="card-body"><div class="card-name">Wild Hops</div><div class="card-meta"><span class="stars">★ 4.2</span><span class="badge bg">~5 min</span><span class="badge bx">Diag. 74</span></div><p class="card-tip">Cerveza artesanal y cócteles. Muy animado los fines de semana. L–D desde las 17:30 hs, hasta las 5 AM.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9165971,-57.9547025" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"></path></svg></div><div class="card-body"><div class="card-name">Bye Henry 44</div><div class="card-meta"><span class="stars">★ 4.1</span><span class="badge bg">~12 min</span><span class="badge bx">Av. 44 1114</span></div><p class="card-tip">Cervecería artesanal con enorme variedad de birras, hamburguesas y picadas. Ma–D 18 hs hasta las 5 AM.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9203725,-57.965661" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"></path></svg></div><div class="card-body"><div class="card-name">Amsterdam Baxar</div><div class="card-meta"><span class="stars">★ 4.4</span><span class="badge bg">~12 min</span><span class="badge bx">Av. 51 y 5</span></div><p class="card-tip">Calamares, papas y cócteles bien preparados. Excelente atención. Fines de semana.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9137422,-57.9478722" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-a"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"></path></svg></div><div class="card-body"><div class="card-name">Lemmens Cervecería</div><div class="card-meta"><span class="stars">★ 4.0</span><span class="badge bg">~5 min</span><span class="badge bx">Diag. 74 1630</span></div><p class="card-tip">Cervecería con pizza, hamburguesas y gran variedad de birras. L–D desde las 9 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9186038,-57.9545586" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <p class="sec-label" id="t-sec-bar">Bares & Cervecerías</p>
+  <div id="bares-static"></div>
   <div id="custom-bares"></div>
 </div>
 <div id="supers" class="section">
   <p class="sec-label" id="t-sec-24">Abiertos 24 hs</p>
-  <div id="supers-24"><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg></div><div class="card-body"><div class="card-name">Carrefour Market</div><div class="card-meta"><span class="stars">★ 4.0</span><span class="badge bg">~6 min</span><span class="badge bx">Av. 7 767</span></div><p class="card-tip">El más cercano al depto. Ideal para compras rápidas. Abierto las 24 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9134179,-57.9519421" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg></div><div class="card-body"><div class="card-name">Gringo's 24 hs</div><div class="card-meta"><span class="stars">★ 4.1</span><span class="badge ba">~15 min</span><span class="badge bx">Av. 7 1615</span></div><p class="card-tip">Supermercado completo con carnicería. Abierto las 24 hs, todos los días.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9250584,-57.9362258" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <div id="supers-24"></div>
   <p class="sec-label" id="t-sec-normal">Horario normal</p>
-  <div id="supers-normal"><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg></div><div class="card-body"><div class="card-name">Supermercados DIA</div><div class="card-meta"><span class="stars">★ 4.0</span><span class="badge bg">~5 min</span><span class="badge bx">C. 48 944</span></div><p class="card-tip">El más cercano para el día a día. L–D de 8 a 22 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9200937,-57.9581002" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-x"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg></div><div class="card-body"><div class="card-name">Carrefour Hipermercado</div><div class="card-meta"><span class="badge ba">~15 min en auto</span><span class="badge bx">Camino Belgrano</span></div><p class="card-tip">Para compras grandes: alimentos, ropa y electrodomésticos. L–D 8–22 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.8937602,-57.9963701" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <div id="supers-normal"></div>
   <div id="custom-supers"></div>
 </div>
 <div id="farmacias" class="section">
   <div class="info-box" style="background:#FEF9EC;border-color:rgba(196,152,0,.2)">
-    <h3 style="color:#7A4D00"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span id="t-farmduty">Farmacias de turno</span></h3>
+    <h3 style="color:#7A4D00"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="t-farmduty">Farmacias de turno</span></h3>
     <ul><li style="color:#6B4A00"><span id="t-farmtip">Las farmacias rotan guardias. Buscá la de turno en <strong>colfarmalp.org.ar</strong></span></li></ul>
   </div>
-  <div id="farmacias-static"><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><div class="card-body"><div class="card-name">Farmacia Zucolillo</div><div class="card-meta"><span class="stars">★ 4.9</span><span class="badge bg">~8 min</span><span class="badge bx">C. 48 y 4</span></div><p class="card-tip">La mejor puntuada del centro. Atención excepcional. L–V 8:30–20:30 hs, S 9–13 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9107319,-57.9481455" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542214218291"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><div class="card-body"><div class="card-name">Farmacia 44</div><div class="card-meta"><span class="stars">★ 4.4</span><span class="badge bg">~12 min</span><span class="badge bx">Av. 44 y 15</span></div><p class="card-tip">Farmacia de barrio con buen stock. L–V 8:30–20 hs, S 9–13 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9182508,-57.96329" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542214824750"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div></div>
+  <div id="farmacias-static"></div>
   <div id="custom-farmacias"></div>
 </div>
 <div id="traslados" class="section">
   <div class="info-box">
-    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span id="t-moverse">Moverse en La Plata</span></h3>
-    <ul id="traslados-tips"><li>Uber y Cabify funcionan normalmente</li><li>Remises: la opción local más confiable</li><li>Terminal de ómnibus: ~15 min en remis</li><li>Tren a Buenos Aires: ~20 min a pie</li></ul>
+    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span id="t-moverse">Moverse en La Plata</span></h3>
+    <ul id="traslados-tips"></ul>
   </div>
   <p class="sec-label" id="t-sec-remises">Remises recomendados</p>
-  <div id="traslados-static"><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div><div class="card-body"><div class="card-name">Remises Horizonte</div><div class="card-meta"><span class="stars">★ 4.4</span><span class="badge bg">24 hs</span></div><p class="card-tip">Los más usados de La Plata. App propia y pedido por WhatsApp. Muy confiables.</p><div class="btns"><a class="call-btn" href="tel:+542214833030"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-x"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div><div class="card-body"><div class="card-name">Señorial Remises</div><div class="card-meta"><span class="stars">★ 4.0</span><span class="badge bg">24 hs</span></div><p class="card-tip">Alternativa confiable. Reservar con anticipación en horarios pico.</p><div class="btns"><a class="call-btn" href="tel:+542213011770"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg></div><div class="card-body"><div class="card-name">Cajero Banco Nación</div><div class="card-meta"><span class="badge bg">24 hs</span><span class="badge bx">C. 4 y 48</span></div><p class="card-tip">Cajero automático disponible las 24 hs, sobre calle 4.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9004128,-57.9618698" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"></rect><circle cx="12" cy="13" r="5"></circle></svg></div><div class="card-body"><div class="card-name">La Lavandería</div><div class="card-meta"><span class="stars">★ 4.0</span><span class="badge ba">~15 min</span><span class="badge bx">C. 7 1242</span></div><p class="card-tip">Única con autoservicio en el centro. Lavado completo o self-service. L–S 8–20 hs, D 9–19 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9188907,-57.9438829" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542216257017"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div></div>
+  <div id="traslados-static"></div>
   <div id="custom-traslados"></div>
 </div>
 <div id="paseos" class="section">
   <div class="info-box">
-    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg><span id="t-descubrir">La Plata para descubrir</span></h3>
-    <ul id="paseos-tips"><li>Catedral y Plaza Moreno a ~10 min a pie</li><li>El Bosque y Museo de Ciencias Naturales, imperdibles</li><li>Ciudad en cuadrícula diagonal, fácil de recorrer a pie</li><li>Rooftop La Sorbetiere: mejor atardecer de la ciudad</li></ul>
+    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><span id="t-descubrir">La Plata para descubrir</span></h3>
+    <ul id="paseos-tips"></ul>
   </div>
-  <p class="sec-label" id="t-sec-nature">Naturaleza &amp; cultura</p>
-  <div id="paseos-static"><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg></div><div class="card-body"><div class="card-name">Paseo del Bosque</div><div class="card-meta"><span class="stars">★ 4.5</span><span class="badge ba">~20 min</span><span class="badge bx">Abierto 24 hs</span></div><p class="card-tip">60 hectáreas de bosque urbano con lago y senderos. Gratis, ideal para picnic.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9083959,-57.9349994" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg></div><div class="card-body"><div class="card-name">Catedral de La Plata</div><div class="card-meta"><span class="badge bg">~10 min</span><span class="badge bx">Plaza Moreno</span></div><p class="card-tip">Una de las catedrales góticas más grandes de América Latina. Entrada gratuita.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9213,-57.9554" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg></div><div class="card-body"><div class="card-name">Museo de Ciencias Naturales</div><div class="card-meta"><span class="badge ba">~25 min</span><span class="badge bx">Paseo del Bosque</span></div><p class="card-tip">Dinosaurios, mamíferos gigantes y colecciones únicas. Uno de los más importantes de Latinoamérica. Ma–D 10–18 hs.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9079,-57.9316" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div><div class="card"><div class="card-icon ci-b"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path></svg></div><div class="card-body"><div class="card-name">La Sorbetiere Rooftop</div><div class="card-meta"><span class="stars">★ 4.2</span><span class="badge bg">~5 min</span><span class="badge bx">Vista a la Catedral</span></div><p class="card-tip">Terraza bar con vista directa a la Catedral. El mejor atardecer de La Plata.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9185679,-57.9539423" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <p class="sec-label" id="t-sec-nature">Naturaleza & cultura</p>
+  <div id="paseos-static"></div>
   <div id="custom-paseos"></div>
 </div>
 <div id="urgencias" class="section">
   <div class="sos-banner">
-    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg><span id="t-emergency">Números de emergencia</span></h3>
+    <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span id="t-emergency">Números de emergencia</span></h3>
     <div class="sos-grid">
       <div class="sos-item"><span id="t-emerg">Emergencias</span><a href="tel:911">911</a></div>
       <div class="sos-item"><span id="t-fire">Bomberos</span><a href="tel:100">100</a></div>
@@ -291,31 +280,31 @@ textarea.a-input{resize:vertical;min-height:80px}
     </div>
   </div>
   <p class="sec-label" id="t-sec-medurg">Urgencias médicas</p>
-  <div id="urgencias-static"><div class="card"><div class="card-icon ci-r"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div><div class="card-body"><div class="card-name">Emergency Medical UDEC</div><div class="card-meta"><span class="stars">★ 4.3</span><span class="badge bg">24 hs</span><span class="badge bx">Av. 13 876</span></div><p class="card-tip">Emergencias médicas domiciliarias 24 hs. Muy bien valorado.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9202141,-57.9559563" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542214393400"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-r"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div><div class="card-body"><div class="card-name">Instituto Central de Medicina</div><div class="card-meta"><span class="badge bg">24 hs</span><span class="badge bx">C. 43 577</span></div><p class="card-tip">Clínica privada con guardia médica 24 hs. Sin turno previo. A ~10 min a pie.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9093582,-57.9561233" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a><a class="call-btn" href="tel:+542214231142"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg> Llamar</a></div></div></div><div class="card"><div class="card-icon ci-g"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"></circle><circle cx="18" cy="8" r="2"></circle><circle cx="20" cy="16" r="2"></circle><path d="M9 10a5 5 0 015 5v3.5a3.5 3.5 0 01-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 017 10h2z"></path></svg></div><div class="card-body"><div class="card-name">Veterinaria AMPA</div><div class="card-meta"><span class="stars">★ 5.0</span><span class="badge ba">~15 min</span><span class="badge bx">Av. 60 505</span></div><p class="card-tip">Excelente trato, urgencias 24 hs. La mejor veterinaria del centro.</p><div class="btns"><a class="map-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=-34.9205,-57.9536&amp;destination=-34.9190737,-57.9398934" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Cómo llegar</a></div></div></div></div>
+  <div id="urgencias-static"></div>
   <div id="custom-urgencias"></div>
 </div>
 
 </div><!-- /sections -->
 
 <button class="pdf-fab" onclick="printPDF()">
-  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
   <span id="t-pdf">Compartir PDF</span>
 </button>
 
 <!-- ADMIN -->
-<div id="admin-panel" style="display: block;">
+<div id="admin-panel">
   <div class="admin-box">
-    <div id="admin-login" style="display: none;">
+    <div id="admin-login">
       <div class="admin-secret">
         <h2>🔐 Panel del anfitrión</h2>
         <p>Solo vos podés editar. Los huéspedes nunca ven esto.</p>
         <input type="password" id="admin-pw" placeholder="••••••" onkeydown="if(event.key==='Enter')checkPW()">
-        <p class="err-msg" id="pw-err" style="display: none;">Contraseña incorrecta</p>
+        <p class="err-msg" id="pw-err">Contraseña incorrecta</p>
         <button class="a-btn" onclick="checkPW()">Ingresar</button>
         <button class="a-btn-sec" onclick="closeAdmin()">Cancelar</button>
       </div>
     </div>
-    <div id="admin-content" style="display: block;">
+    <div id="admin-content" style="display:none">
       <h2>⚙️ Configuración</h2>
       <p class="admin-sub">Editá lo que necesitás, luego descargá el HTML actualizado y reemplazalo en GitHub.</p>
 
@@ -323,8 +312,16 @@ textarea.a-input{resize:vertical;min-height:80px}
         <h4>🏠 Identidad</h4>
         <label class="a-label">Nombre de la guía</label>
         <input class="a-input" id="cfg-title" placeholder="Stay Guide · Mi Depto">
-        <label class="a-label">Dirección</label>
+        <label class="a-label">Dirección (texto visible)</label>
         <input class="a-input" id="cfg-addr" placeholder="Calle 4 entre 64 y 65">
+        <label class="a-label">Ubicación en el mapa</label>
+        <div style="display:flex;gap:6px;margin-top:5px">
+          <input class="a-input" id="cfg-lat" placeholder="Latitud (-34.9205)" style="flex:1;margin:0">
+          <input class="a-input" id="cfg-lng" placeholder="Longitud (-57.9536)" style="flex:1;margin:0">
+        </div>
+        <button type="button" onclick="detectLocation()" id="detect-loc-btn" style="margin-top:8px;width:100%;padding:9px;background:var(--blue-light);color:var(--blue);border:1.5px solid rgba(29,111,164,.2);border-radius:10px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer">📍 Detectar mi ubicación actual</button>
+        <div id="loc-status" style="display:none;font-size:11.5px;margin-top:6px;padding:7px 10px;border-radius:8px"></div>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:5px">O buscá el depto en <a href="https://maps.google.com" target="_blank" style="color:var(--blue)">Google Maps</a>, hacé click derecho sobre el punto → "¿Qué hay aquí?" y copiá las coordenadas.</p>
         <label class="a-label">WhatsApp (solo números, sin +)</label>
         <input class="a-input" id="cfg-wa" placeholder="5492211234567">
         <label class="a-label">Versión</label>
@@ -337,9 +334,7 @@ textarea.a-input{resize:vertical;min-height:80px}
       <div class="a-section">
         <h4>📋 Info del depto</h4>
         <p class="a-sub">Una línea = un ítem</p>
-        <textarea class="a-input" id="cfg-tips" rows="6" placeholder="Check-in desde las 14 hs
-Wi-Fi: nombre / clave
-Pileta disponible en el edificio"></textarea>
+        <textarea class="a-input" id="cfg-tips" rows="6" placeholder="Check-in desde las 14 hs&#10;Wi-Fi: nombre / clave&#10;Pileta disponible en el edificio"></textarea>
       </div>
 
       <div class="a-section">
@@ -358,7 +353,7 @@ Pileta disponible en el edificio"></textarea>
           <option value="cafes">Cafés</option>
           <option value="pizzas">Pizzerías</option>
           <option value="burgers">Burgers</option>
-          <option value="sushi">Sushi &amp; Asia</option>
+          <option value="sushi">Sushi & Asia</option>
           <option value="heladerias">Heladerías</option>
           <option value="bares">Bares</option>
           <option value="supers">Supermercados</option>
@@ -381,17 +376,17 @@ Pileta disponible en el edificio"></textarea>
 
       <div class="a-section">
         <h4>📍 Mis lugares agregados</h4>
-        <div id="custom-places-list"><div class="custom-card"><div class="custom-card-info">La Pirucha Restaurant<span>restaurantes · 65 esq. 3 - La Plata, Bs. Aires</span></div><button class="del-btn" onclick="deletePlace(1780670763704)">Borrar</button></div></div>
+        <div id="custom-places-list"><p style="font-size:13px;color:var(--text-muted)">No hay lugares personalizados aún.</p></div>
       </div>
 
       <button class="a-btn-dl" id="download-btn" onclick="translateAndDownload()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         <span id="dl-btn-text">Traducir y descargar HTML</span>
       </button>
-      <div id="dl-progress" style="display: block; margin-top: 0.75rem; background: rgb(240, 249, 244); border-radius: 10px; padding: 0.75rem 1rem;">
-        <div style="font-size:12px;font-weight:600;color:var(--brand);margin-bottom:6px" id="dl-progress-label">Generando archivo...</div>
+      <div id="dl-progress" style="display:none;margin-top:.75rem;background:#f0f9f4;border-radius:10px;padding:.75rem 1rem;">
+        <div style="font-size:12px;font-weight:600;color:var(--brand);margin-bottom:6px" id="dl-progress-label">Traduciendo...</div>
         <div style="background:#d0ebd9;border-radius:20px;height:6px;overflow:hidden">
-          <div id="dl-progress-bar" style="background: var(--brand); height: 6px; border-radius: 20px; width: 80%; transition: width 0.4s;"></div>
+          <div id="dl-progress-bar" style="background:var(--brand);height:6px;border-radius:20px;width:0%;transition:width .4s ease"></div>
         </div>
       </div>
       <button class="a-btn-sec" onclick="closeAdmin()">Cerrar sin guardar</button>
@@ -400,14 +395,14 @@ Pileta disponible en el edificio"></textarea>
 </div>
 
 <!-- TRANSLATION MODAL -->
-<div id="trans-modal" style="display: none; position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.65); z-index: 200; overflow-y: auto; padding: 1.5rem 1rem; align-items: flex-start; justify-content: center;">
+<div id="trans-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;overflow-y:auto;padding:1.5rem 1rem;align-items:flex-start;justify-content:center">
   <div style="background:#fff;border-radius:20px;padding:1.5rem;max-width:480px;width:100%;margin:0 auto">
     <h2 style="font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px">🌐 Traducir lugares</h2>
     <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:1rem">Tus lugares necesitan traducción. Seguí estos pasos:</p>
 
     <div style="background:var(--brand-light);border-radius:12px;padding:1rem;margin-bottom:1rem">
       <p style="font-size:12px;font-weight:600;color:var(--brand);margin-bottom:8px">Paso 1 — Copiá este JSON</p>
-      <textarea id="trans-payload" readonly="" style="width:100%;font-size:11px;font-family:monospace;padding:10px;border:1.5px solid rgba(45,106,79,.25);border-radius:8px;background:#fff;resize:none;height:120px;outline:none;color:var(--text)"></textarea>
+      <textarea id="trans-payload" readonly style="width:100%;font-size:11px;font-family:monospace;padding:10px;border:1.5px solid rgba(45,106,79,.25);border-radius:8px;background:#fff;resize:none;height:120px;outline:none;color:var(--text)"></textarea>
       <button id="copy-payload-btn" onclick="copyPayload()" style="margin-top:8px;width:100%;padding:9px;background:var(--brand);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer">📋 Copiar</button>
     </div>
 
@@ -421,8 +416,8 @@ Pileta disponible en el edificio"></textarea>
 
     <div style="background:var(--gray);border-radius:12px;padding:1rem;margin-bottom:1rem">
       <p style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">Paso 3 — Pegá la respuesta de Claude acá</p>
-      <textarea id="trans-result" placeholder="[{&quot;id&quot;:123,&quot;tip&quot;:&quot;...&quot;,&quot;en&quot;:&quot;...&quot;,&quot;pt&quot;:&quot;...&quot;,&quot;fr&quot;:&quot;...&quot;}]" oninput="onResultPaste()" style="width:100%;font-size:11px;font-family:monospace;padding:10px;border:1.5px solid var(--border);border-radius:8px;background:#fff;resize:none;height:120px;outline:none;color:var(--text)"></textarea>
-      <button id="trans-apply-btn" onclick="applyTranslations()" style="display: block; margin-top: 8px; width: 100%; padding: 9px; background: var(--brand); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 9px; font-size: 13px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer;">✅ Aplicar y descargar HTML</button>
+      <textarea id="trans-result" placeholder='[{"id":123,"tip":"...","en":"...","pt":"...","fr":"..."}]' oninput="onResultPaste()" style="width:100%;font-size:11px;font-family:monospace;padding:10px;border:1.5px solid var(--border);border-radius:8px;background:#fff;resize:none;height:120px;outline:none;color:var(--text)"></textarea>
+      <button id="trans-apply-btn" onclick="applyTranslations()" style="display:none;margin-top:8px;width:100%;padding:9px;background:var(--brand);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer">✅ Aplicar y descargar HTML</button>
     </div>
 
     <button onclick="closeTransModal();doDownload();" style="width:100%;padding:10px;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer">Cancelar — descargar sin traducir</button>
@@ -432,26 +427,15 @@ Pileta disponible en el edificio"></textarea>
 <script>
 // ── CONFIG — editá acá o desde el panel ───────────────────────────────────────
 const CFG = {
-  "title": "Stay Guide",
-  "addr": "Calle 4 N 1562 entre 64 y 65",
-  "wa": "5492213160549",
-  "pw": "1234",
-  "version": "1.0.2",
-  "tips": "Check-in desde las 14 hs\nCheck-out hasta las 11 hs\nWi-Fi: disponible en el depto\nAnte cualquier problema escribí al anfitrión",
-  "places": [
-    {
-      "id": 1780670763704,
-      "name": "La Pirucha Restaurant",
-      "tip": "Un lugar que cuenta historias... ⌛Desde 1940",
-      "cat": "restaurantes",
-      "addr": "65 esq. 3 - La Plata, Bs. Aires",
-      "phone": "221-3141415",
-      "map": "https://www.google.com/maps/place/La+Pirucha+Restaurant/@-34.9218034,-57.9349191,17z/data=!4m6!3m5!1s0x95a2e61db797a07b:0x70c68ed71b34c09f!8m2!3d-34.9216022!4d-57.931782!16s%2Fg%2F11bw4tvw6p?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D",
-      "en": "A place that tells stories... ⌛Since 1940",
-      "pt": "Um lugar que conta histórias... ⌛Desde 1940",
-      "fr": "Un endroit qui raconte des histoires... ⌛Depuis 1940"
-    }
-  ]
+  title:   'Stay Guide',
+  addr:    'Calle 4 entre 64 y 65',
+  lat:     -34.9205,
+  lng:     -57.9536,
+  wa:      '',           // ej: '5492211234567'
+  pw:      '1234',
+  version: '1.0.0',
+  tips:    'Check-in desde las 14 hs\nCheck-out hasta las 11 hs\nWi-Fi: disponible en el depto\nAnte cualquier problema escribí al anfitrión',
+  places:  []            // se rellena desde el panel
 };
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -750,7 +734,9 @@ const UI = {
 // ── RENDER ────────────────────────────────────────────────────────────────────
 function buildCard(p, lang) {
   const tip = p[lang] || p.es;
-  const dirBtn = p.map ? `<a class="map-btn" href="${p.map}" target="_blank">${NAV} ${UI[lang].directions}</a>` : '';
+  const lat=cfg.lat||-34.9205, lng=cfg.lng||-57.9536;
+  const mapUrl=p.map?p.map.replace(/origin=-?[\d.]+,-?[\d.]+/,`origin=${lat},${lng}`):null;
+  const dirBtn = mapUrl ? `<a class="map-btn" href="${mapUrl}" target="_blank">${NAV} ${UI[lang].directions}</a>` : '';
   const callBtn = p.phone ? `<a class="call-btn" href="tel:${p.phone}">${CALL} ${UI[lang].call}</a>` : '';
   const stars = p.stars ? `<span class="stars">★ ${p.stars}</span>` : '';
   const walkBadge = p.walk ? `<span class="badge ${p.walk.includes('15')||p.walk.includes('20')||p.walk.includes('25')?'ba':'bg'}">${p.walk}</span>` : '';
@@ -835,6 +821,10 @@ function applyConfig() {
   document.getElementById('guide-title').appendChild(badge);
   document.getElementById('addr-text').textContent=(cfg.addr||'Calle 4 entre 64 y 65')+' · La Plata';
   document.getElementById('address-display').textContent=cfg.addr||'Calle 4 entre 64 y 65';
+  // Update map link with current coords
+  const lat=cfg.lat||-34.9205;
+  const lng=cfg.lng||-57.9536;
+  document.getElementById('map-main-link').href=`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
   if(cfg.wa){const wa=document.getElementById('wa-link');wa.href='https://wa.me/'+cfg.wa;}
   const tips=(cfg.tips||'').split('\n').filter(l=>l.trim());
   const ul=document.getElementById('apt-tips-list');ul.innerHTML='';
@@ -887,7 +877,15 @@ function openAdmin(){
     document.getElementById('pw-err').style.display='none';
   } else { showAdminContent(); }
 }
-function closeAdmin(){ document.getElementById('admin-panel').style.display='none'; }
+function closeAdmin(){
+  document.getElementById('admin-panel').style.display='none';
+  // Reset so next open always asks for password
+  unlocked=false;
+  document.getElementById('admin-login').style.display='block';
+  document.getElementById('admin-content').style.display='none';
+  document.getElementById('admin-pw').value='';
+  document.getElementById('pw-err').style.display='none';
+}
 function checkPW(){
   if(document.getElementById('admin-pw').value===cfg.pw){
     unlocked=true; showAdminContent();
@@ -901,6 +899,8 @@ function showAdminContent(){
   document.getElementById('admin-content').style.display='block';
   document.getElementById('cfg-title').value=cfg.title||'';
   document.getElementById('cfg-addr').value=cfg.addr||'';
+  document.getElementById('cfg-lat').value=cfg.lat||'';
+  document.getElementById('cfg-lng').value=cfg.lng||'';
   document.getElementById('cfg-wa').value=cfg.wa||'';
   document.getElementById('cfg-tips').value=cfg.tips||'';
   document.getElementById('cfg-version').value=cfg.version||'1.0.0';
@@ -912,6 +912,43 @@ function bumpVersion(){
   const parts=(document.getElementById('cfg-version').value||'1.0.0').split('.').map(Number);
   parts[2]=(parts[2]||0)+1;
   document.getElementById('cfg-version').value=parts.join('.');
+}
+
+function detectLocation(){
+  const btn=document.getElementById('detect-loc-btn');
+  const status=document.getElementById('loc-status');
+  if(!navigator.geolocation){
+    status.style.display='block';
+    status.style.background='var(--red-light)';
+    status.style.color='var(--red)';
+    status.textContent='❌ Tu navegador no soporta geolocalización.';
+    return;
+  }
+  btn.textContent='⏳ Detectando...';
+  btn.disabled=true;
+  navigator.geolocation.getCurrentPosition(
+    pos=>{
+      const lat=pos.coords.latitude.toFixed(6);
+      const lng=pos.coords.longitude.toFixed(6);
+      document.getElementById('cfg-lat').value=lat;
+      document.getElementById('cfg-lng').value=lng;
+      status.style.display='block';
+      status.style.background='var(--brand-light)';
+      status.style.color='var(--brand)';
+      status.textContent=`✅ Ubicación detectada: ${lat}, ${lng}`;
+      btn.textContent='📍 Detectar mi ubicación actual';
+      btn.disabled=false;
+    },
+    err=>{
+      status.style.display='block';
+      status.style.background='var(--red-light)';
+      status.style.color='var(--red)';
+      status.textContent='❌ No se pudo detectar. Ingresá las coordenadas manualmente.';
+      btn.textContent='📍 Detectar mi ubicación actual';
+      btn.disabled=false;
+    },
+    {enableHighAccuracy:true,timeout:8000}
+  );
 }
 
 // ── ADD/DELETE PLACE ──────────────────────────────────────────────────────────
@@ -941,6 +978,8 @@ async function translateAndDownload(){
   const newPw=document.getElementById('cfg-pw').value.trim();
   cfg.title=document.getElementById('cfg-title').value.trim()||'Stay Guide';
   cfg.addr=document.getElementById('cfg-addr').value.trim()||'Calle 4 entre 64 y 65';
+  cfg.lat=parseFloat(document.getElementById('cfg-lat').value)||cfg.lat||-34.9205;
+  cfg.lng=parseFloat(document.getElementById('cfg-lng').value)||cfg.lng||-57.9536;
   cfg.wa=document.getElementById('cfg-wa').value.trim();
   cfg.tips=document.getElementById('cfg-tips').value;
   cfg.version=document.getElementById('cfg-version').value.trim()||'1.0.0';
@@ -1011,7 +1050,18 @@ function doDownload(){
   bar.style.width='80%';
   label.textContent='Generando archivo...';
 
+  // Force-hide panels before capturing HTML so they don't appear on load
+  document.getElementById('admin-panel').style.display='none';
+  document.getElementById('trans-modal').style.display='none';
+  document.getElementById('admin-content').style.display='none';
+  document.getElementById('admin-login').style.display='block';
+
   let html=document.documentElement.outerHTML;
+
+  // Extra safety: ensure admin-panel is hidden in the saved HTML
+  html=html.replace(/id="admin-panel" style="display:[^"]*"/g, 'id="admin-panel" style="display:none"');
+  html=html.replace(/id="trans-modal" style="display:[^"]*"/g, 'id="trans-modal" style="display:none"');
+
   html=html.replace(/<!-- APP VERSION: [\d.]+ -->/,'<!-- APP VERSION: '+cfg.version+' -->');
   const cfgStr=`const CFG = ${JSON.stringify(cfg,null,2)};`;
   html=html.replace(/const CFG = \{[\s\S]*?\};(\s*\/\/ ──)/,cfgStr+'$1');
@@ -1041,6 +1091,5 @@ applyConfig();
 applyUI('es');
 renderStatic('es');
 </script>
-
-
-</body><guidde-record id="GUIDDE_JS_RECORD_UI" dir="ltr" style="position: absolute; z-index: 999999999;"></guidde-record></html>
+</body>
+</html>
