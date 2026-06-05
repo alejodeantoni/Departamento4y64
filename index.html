@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Stay Guide · La Plata</title>
+<!-- APP VERSION: 1.0.0 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -31,6 +32,7 @@ body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-hei
 .hero h1{font-family:'Playfair Display',serif;font-size:26px;color:#fff;line-height:1.2;margin-bottom:6px}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero-sub{font-size:12.5px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+.version-badge{display:inline-block;background:rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:9px;font-weight:600;letter-spacing:.06em;padding:2px 7px;border-radius:10px;margin-left:6px;font-family:'Inter',sans-serif;vertical-align:middle}
 .hero-name{font-size:20px;font-weight:600;color:#fff;font-family:'Playfair Display',serif;margin-bottom:4px;cursor:default;user-select:none}
 
 /* TABS */
@@ -157,7 +159,7 @@ textarea.a-input{resize:vertical;min-height:80px}
       <button class="lang-btn" onclick="changeLang('fr',this)">FR</button>
     </div>
   </div>
-  <div class="hero-name" id="guide-title">Stay Guide</div>
+  <div class="hero-name" id="guide-title">Stay Guide<span class="version-badge" id="version-badge">v1.0.0</span></div>
   <h1 id="t-h1">Tu guía <em>local</em></h1>
   <p class="hero-sub">
     <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
@@ -361,6 +363,12 @@ textarea.a-input{resize:vertical;min-height:80px}
         <input class="a-input" id="cfg-addr" placeholder="Calle 4 entre 64 y 65">
         <label class="a-label">WhatsApp del anfitrión (solo números, sin +)</label>
         <input class="a-input" id="cfg-wa" placeholder="5492211234567">
+        <label class="a-label">Versión actual</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input class="a-input" id="cfg-version" placeholder="1.0.0" style="flex:1;margin:0">
+          <button type="button" onclick="bumpVersion()" style="padding:10px 14px;background:var(--brand-light);color:var(--brand);border:none;border-radius:10px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap">+1 patch</button>
+        </div>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:4px">Incrementá la versión cada vez que guardes cambios para saber qué versión está publicada</p>
       </div>
 
       <div class="a-section">
@@ -437,7 +445,8 @@ let cfg = {
   wa: '',
   pw: '1234',
   tips: 'Check-in desde las 14 hs\nCheck-out hasta las 11 hs\nWi-Fi: disponible en el depto\nAnte cualquier problema escribí al anfitrión',
-  places: []
+  places: [],
+  version: '1.0.0'
 };
 
 // translations cache per lang
@@ -747,6 +756,12 @@ function showTab(id, btn) {
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 function applyConfig() {
   document.getElementById('guide-title').textContent = cfg.title || 'Stay Guide';
+  // re-append version badge (textContent wipes it)
+  const badge = document.createElement('span');
+  badge.className = 'version-badge';
+  badge.id = 'version-badge';
+  badge.textContent = 'v' + (cfg.version || '1.0.0');
+  document.getElementById('guide-title').appendChild(badge);
   document.getElementById('addr-text').textContent = (cfg.addr||'Calle 4 entre 64 y 65') + ' · La Plata';
   document.getElementById('address-display').textContent = cfg.addr || 'Calle 4 entre 64 y 65';
   if (cfg.wa) {
@@ -822,6 +837,7 @@ function showAdminContent() {
   document.getElementById('cfg-wa').value = cfg.wa||'';
   document.getElementById('cfg-tips').value = cfg.tips||'';
   document.getElementById('cfg-pw').value = '';
+  document.getElementById('cfg-version').value = cfg.version || '1.0.0';
   document.getElementById('sync-status').style.display='none';
   renderAdminList();
 }
@@ -833,8 +849,16 @@ async function saveConfig() {
   cfg.addr = document.getElementById('cfg-addr').value.trim() || 'Calle 4 entre 64 y 65';
   cfg.wa = document.getElementById('cfg-wa').value.trim();
   cfg.tips = document.getElementById('cfg-tips').value;
+  cfg.version = document.getElementById('cfg-version').value.trim() || cfg.version || '1.0.0';
   applyConfig();
   await saveToBin(); // closes admin on success
+}
+
+function bumpVersion() {
+  const current = document.getElementById('cfg-version').value || cfg.version || '1.0.0';
+  const parts = current.split('.').map(Number);
+  parts[2] = (parts[2] || 0) + 1;
+  document.getElementById('cfg-version').value = parts.join('.');
 }
 
 async function addPlace() {
