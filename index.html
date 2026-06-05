@@ -2,22 +2,21 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<!-- APP VERSION: 1.0.0 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Stay Guide · La Plata</title>
-<!-- APP VERSION: 1.0.0 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --brand:#1B4332;--brand2:#2D6A4F;--brand-mid:#52B788;--brand-light:#D8F3DC;
-  --accent:#E9C46A;--accent2:#F4A261;--accent-light:#FEF9EC;
+  --brand:#1B4332;--brand2:#2D6A4F;--brand-light:#D8F3DC;
+  --accent:#E9C46A;--accent-light:#FEF9EC;
   --red:#C1121F;--red-light:#FFE5E7;
   --blue:#1D6FA4;--blue-light:#E8F4FD;
   --gray:#F8F7F4;--border:#E5E2DB;--text-muted:#7A776E;--text:#1A1916;
-  --white:#FFFFFF;--radius:16px;--radius-sm:10px;
+  --white:#FFFFFF;--radius:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{font-size:16px}
 body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-height:100vh}
 
 /* HERO */
@@ -32,8 +31,8 @@ body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-hei
 .hero h1{font-family:'Playfair Display',serif;font-size:26px;color:#fff;line-height:1.2;margin-bottom:6px}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero-sub{font-size:12.5px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
-.version-badge{display:inline-block;background:rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:9px;font-weight:600;letter-spacing:.06em;padding:2px 7px;border-radius:10px;margin-left:6px;font-family:'Inter',sans-serif;vertical-align:middle}
 .hero-name{font-size:20px;font-weight:600;color:#fff;font-family:'Playfair Display',serif;margin-bottom:4px;cursor:default;user-select:none}
+.version-badge{display:inline-block;background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:9px;font-weight:600;letter-spacing:.05em;padding:2px 7px;border-radius:10px;margin-left:6px;font-family:'Inter',sans-serif;vertical-align:middle}
 
 /* TABS */
 .tab-bar{display:flex;overflow-x:auto;gap:5px;padding:.85rem 1rem .7rem;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;scrollbar-width:none}
@@ -42,14 +41,14 @@ body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-hei
 .tab-btn.active{background:var(--brand);border-color:var(--brand);color:#fff}
 .tab-btn svg{width:13px;height:13px}
 
-/* CONTENT */
+/* SECTIONS */
 .sections{padding:.9rem 1.1rem 5rem}
 .section{display:none}
 .section.active{display:block}
 .sec-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:1.2rem 0 .55rem}
 .sec-label:first-child{margin-top:0}
 
-/* CARD */
+/* CARDS */
 .card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:.9rem 1rem;margin-bottom:9px;display:flex;gap:11px;align-items:flex-start}
 .card-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .card-icon svg{width:18px;height:18px}
@@ -70,25 +69,18 @@ body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-hei
 .stars{font-size:11.5px;color:#B8860B;font-weight:600}
 .card-tip{font-size:12.5px;color:var(--text-muted);line-height:1.45;margin-top:5px}
 .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
-.map-btn{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;padding:5px 12px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--text);cursor:pointer;text-decoration:none}
+.map-btn{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;padding:5px 12px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--text);text-decoration:none}
 .map-btn svg{width:12px;height:12px;color:var(--brand2)}
 .call-btn{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;padding:5px 12px;border-radius:20px;background:var(--brand-light);border:1.5px solid transparent;color:var(--brand);text-decoration:none}
 .call-btn svg{width:12px;height:12px}
 
-/* BANNERS */
-.sos-banner{background:var(--red);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:9px;color:#fff}
-.sos-banner h3{font-size:13.5px;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:6px}
-.sos-banner h3 svg{width:15px;height:15px}
-.sos-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.sos-item{background:rgba(255,255,255,.16);border-radius:8px;padding:7px 10px}
-.sos-item span{display:block;font-size:10px;opacity:.75;margin-bottom:2px}
-.sos-item a{display:block;font-size:16px;font-weight:700;color:#fff;text-decoration:none}
+/* INFO BOXES */
 .info-box{background:var(--brand-light);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:9px;border:1px solid rgba(45,106,79,.18)}
 .info-box h3{font-size:13px;font-weight:600;color:var(--brand);margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .info-box h3 svg{width:15px;height:15px}
 .info-box ul{list-style:none}
 .info-box ul li{font-size:12.5px;color:#1B5E3B;padding:3px 0;display:flex;gap:7px;line-height:1.4}
-.info-box ul li::before{content:"·";font-weight:700;flex-shrink:0;margin-top:1px}
+.info-box ul li::before{content:"·";font-weight:700;flex-shrink:0}
 .info-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:1rem;margin-bottom:9px}
 .info-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:9px;display:flex;align-items:center;gap:6px}
 .info-card h3 svg{width:15px;height:15px;color:var(--brand2)}
@@ -98,11 +90,14 @@ body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-hei
 .info-row span:last-child{font-weight:500}
 .info-row a{color:var(--brand2);font-weight:600;text-decoration:none}
 
-/* LOADING OVERLAY */
-.translating-overlay{position:fixed;inset:0;background:rgba(27,67,50,.7);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.translating-overlay p{color:#fff;font-size:14px;font-weight:500}
-.spinner{width:36px;height:36px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* EMERGENCY */
+.sos-banner{background:var(--red);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:9px;color:#fff}
+.sos-banner h3{font-size:13.5px;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.sos-banner h3 svg{width:15px;height:15px}
+.sos-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.sos-item{background:rgba(255,255,255,.16);border-radius:8px;padding:7px 10px}
+.sos-item span{display:block;font-size:10px;opacity:.75;margin-bottom:2px}
+.sos-item a{display:block;font-size:16px;font-weight:700;color:#fff;text-decoration:none}
 
 /* PDF FAB */
 .pdf-fab{position:fixed;bottom:1.5rem;right:1.25rem;background:var(--brand);color:#fff;border:none;border-radius:50px;padding:12px 18px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:7px;cursor:pointer;box-shadow:0 4px 20px rgba(27,67,50,.4);z-index:9}
@@ -112,33 +107,30 @@ body{font-family:'Inter',sans-serif;background:#EFEDE8;color:var(--text);min-hei
 #admin-panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;overflow-y:auto;padding:1.5rem 1rem}
 .admin-box{background:#fff;border-radius:20px;padding:1.5rem;max-width:480px;margin:0 auto}
 .admin-box h2{font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
-.admin-box>p,.admin-box .sub{font-size:12.5px;color:var(--text-muted);margin-bottom:1.25rem}
-.a-label{font-size:11px;font-weight:600;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;display:block;margin-top:.75rem}
+.admin-sub{font-size:12.5px;color:var(--text-muted);margin-bottom:1.25rem}
+.a-label{font-size:11px;font-weight:600;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;margin-top:.75rem;display:block}
 .a-input{width:100%;font-size:14px;font-family:'Inter',sans-serif;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;outline:none;color:var(--text);background:#fafaf9}
 .a-input:focus{border-color:var(--brand2)}
 textarea.a-input{resize:vertical;min-height:80px}
 .a-section{border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1rem}
-.a-section h4{font-size:13px;font-weight:600;margin-bottom:.25rem;color:var(--text)}
-.a-section .a-sub{font-size:11.5px;color:var(--text-muted);margin-bottom:.75rem}
-.a-btn{width:100%;padding:12px;background:var(--brand);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;margin-top:.6rem}
+.a-section h4{font-size:13px;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.a-section .a-sub{font-size:11.5px;color:var(--text-muted);margin-bottom:.5rem}
+.a-btn{width:100%;padding:12px;background:var(--brand);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;margin-top:.6rem;display:block}
 .a-btn-sec{width:100%;padding:11px;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);border-radius:12px;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;margin-top:.5rem}
-.a-btn:disabled{opacity:.6;cursor:not-allowed}
-.custom-card{background:var(--gray);border-radius:10px;padding:.75rem;margin-bottom:7px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.custom-card-info{font-size:13px;font-weight:500;color:var(--text);flex:1}
-.custom-card-info span{display:block;font-size:11px;color:var(--text-muted);font-weight:400;margin-top:2px}
-.del-btn{background:var(--red-light);color:var(--red);border:none;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0}
+.a-btn-dl{width:100%;padding:12px;background:#1D6FA4;color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;margin-top:.6rem;display:flex;align-items:center;justify-content:center;gap:8px}
 .admin-secret{text-align:center;padding:1rem 0}
 .admin-secret h2{font-size:20px;font-weight:700;margin-bottom:6px}
 .admin-secret p{font-size:13px;color:var(--text-muted);margin-bottom:1.25rem}
 #admin-pw{width:100%;font-size:18px;font-family:'Inter',sans-serif;padding:12px;border:2px solid var(--border);border-radius:12px;outline:none;text-align:center;letter-spacing:.25em;margin-bottom:.75rem}
 #admin-pw:focus{border-color:var(--brand2)}
 .err-msg{color:var(--red);font-size:12px;text-align:center;margin-bottom:.5rem;display:none}
-.sync-status{font-size:11px;text-align:center;padding:4px;border-radius:6px;margin-bottom:.5rem;display:none}
-.sync-ok{background:#D8F3DC;color:#1B5E3B}
-.sync-err{background:var(--red-light);color:var(--red)}
+.custom-card{background:var(--gray);border-radius:10px;padding:.75rem;margin-bottom:7px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.custom-card-info{font-size:13px;font-weight:500;color:var(--text);flex:1}
+.custom-card-info span{display:block;font-size:11px;color:var(--text-muted);font-weight:400;margin-top:2px}
+.del-btn{background:var(--red-light);color:var(--red);border:none;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0}
 
 @media print{
-  .tab-bar,.pdf-fab,.lang-picker,#admin-panel,.translating-overlay{display:none!important}
+  .tab-bar,.pdf-fab,.lang-picker,#admin-panel{display:none!important}
   .sections{padding:0}
   .section{display:block!important}
   .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -148,7 +140,6 @@ textarea.a-input{resize:vertical;min-height:80px}
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-top">
     <span class="hero-tag" id="t-welcome">Bienvenido/a</span>
@@ -167,7 +158,6 @@ textarea.a-input{resize:vertical;min-height:80px}
   </p>
 </div>
 
-<!-- TABS -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('inicio',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span id="t-tab0">Inicio</span></button>
   <button class="tab-btn" onclick="showTab('restaurantes',this)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><span id="t-tab1">Restaurantes</span></button>
@@ -186,7 +176,6 @@ textarea.a-input{resize:vertical;min-height:80px}
 
 <div class="sections">
 
-<!-- INICIO -->
 <div id="inicio" class="section active">
   <div class="info-box">
     <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="t-aptinfo">Info del departamento</span></h3>
@@ -194,13 +183,13 @@ textarea.a-input{resize:vertical;min-height:80px}
   </div>
   <div class="info-card">
     <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span id="t-contact">Contacto del anfitrión</span></h3>
-    <div class="info-row"><span id="t-wa-label">WhatsApp</span><a id="wa-link" href="#" id="t-wa-msg">Escribir mensaje</a></div>
-    <div class="info-row"><span id="t-responds">Responde en</span><span id="t-resp-time">Menos de 1 hora</span></div>
-    <div class="info-row"><span id="t-attention">Atención</span><span id="t-att-hours">Las 24 hs</span></div>
+    <div class="info-row"><span id="t-walabel">WhatsApp</span><a id="wa-link" href="#">Escribir mensaje</a></div>
+    <div class="info-row"><span id="t-responds">Responde en</span><span id="t-resptime">Menos de 1 hora</span></div>
+    <div class="info-row"><span id="t-attention">Atención</span><span id="t-atthours">Las 24 hs</span></div>
   </div>
   <div class="info-card">
     <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span id="t-howarrive">Cómo llegar</span></h3>
-    <div class="info-row"><span id="t-addr-label">Dirección</span><span id="address-display">Calle 4 entre 64 y 65</span></div>
+    <div class="info-row"><span id="t-addrlabel">Dirección</span><span id="address-display">Calle 4 entre 64 y 65</span></div>
     <div class="info-row"><span id="t-city">Ciudad</span><span>La Plata, Buenos Aires</span></div>
     <div class="info-row" style="border:none;padding-bottom:0">
       <a class="map-btn" id="map-main-link" href="https://www.google.com/maps/search/?api=1&query=-34.9205,-57.9536" target="_blank" style="margin-top:4px">
@@ -212,56 +201,41 @@ textarea.a-input{resize:vertical;min-height:80px}
   <div id="custom-inicio"></div>
 </div>
 
-<!-- RESTAURANTES -->
 <div id="restaurantes" class="section">
-  <p class="sec-label" id="t-sec-bodegones">Bodegones & Parrillas</p>
+  <p class="sec-label" id="t-sec-rest">Bodegones & Parrillas</p>
   <div id="rest-static"></div>
   <div id="custom-restaurantes"></div>
 </div>
-
-<!-- CAFES -->
 <div id="cafes" class="section">
-  <p class="sec-label" id="t-sec-coffee">Specialty coffee</p>
+  <p class="sec-label" id="t-sec-cafe">Specialty coffee & Brunch</p>
   <div id="cafes-static"></div>
   <div id="custom-cafes"></div>
 </div>
-
-<!-- PIZZAS -->
 <div id="pizzas" class="section">
   <p class="sec-label" id="t-sec-pizza">Las mejores de La Plata</p>
   <div id="pizzas-static"></div>
   <div id="custom-pizzas"></div>
 </div>
-
-<!-- BURGERS -->
 <div id="burgers" class="section">
-  <p class="sec-label" id="t-sec-burgers">Las mejores hamburguesas</p>
+  <p class="sec-label" id="t-sec-burger">Las mejores hamburguesas</p>
   <div id="burgers-static"></div>
   <div id="custom-burgers"></div>
 </div>
-
-<!-- SUSHI -->
 <div id="sushi" class="section">
   <p class="sec-label" id="t-sec-sushi">Sushi & Cocina asiática</p>
   <div id="sushi-static"></div>
   <div id="custom-sushi"></div>
 </div>
-
-<!-- HELADERIAS -->
 <div id="heladerias" class="section">
   <p class="sec-label" id="t-sec-hela">Heladerías</p>
   <div id="heladerias-static"></div>
   <div id="custom-heladerias"></div>
 </div>
-
-<!-- BARES -->
 <div id="bares" class="section">
-  <p class="sec-label" id="t-sec-bares">Bares & Cervecerías</p>
+  <p class="sec-label" id="t-sec-bar">Bares & Cervecerías</p>
   <div id="bares-static"></div>
   <div id="custom-bares"></div>
 </div>
-
-<!-- SUPERS -->
 <div id="supers" class="section">
   <p class="sec-label" id="t-sec-24">Abiertos 24 hs</p>
   <div id="supers-24"></div>
@@ -269,8 +243,6 @@ textarea.a-input{resize:vertical;min-height:80px}
   <div id="supers-normal"></div>
   <div id="custom-supers"></div>
 </div>
-
-<!-- FARMACIAS -->
 <div id="farmacias" class="section">
   <div class="info-box" style="background:#FEF9EC;border-color:rgba(196,152,0,.2)">
     <h3 style="color:#7A4D00"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="t-farmduty">Farmacias de turno</span></h3>
@@ -279,8 +251,6 @@ textarea.a-input{resize:vertical;min-height:80px}
   <div id="farmacias-static"></div>
   <div id="custom-farmacias"></div>
 </div>
-
-<!-- TRASLADOS -->
 <div id="traslados" class="section">
   <div class="info-box">
     <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span id="t-moverse">Moverse en La Plata</span></h3>
@@ -290,19 +260,15 @@ textarea.a-input{resize:vertical;min-height:80px}
   <div id="traslados-static"></div>
   <div id="custom-traslados"></div>
 </div>
-
-<!-- PASEOS -->
 <div id="paseos" class="section">
   <div class="info-box">
     <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><span id="t-descubrir">La Plata para descubrir</span></h3>
     <ul id="paseos-tips"></ul>
   </div>
-  <p class="sec-label" id="t-sec-nature">Naturaleza & aire libre</p>
+  <p class="sec-label" id="t-sec-nature">Naturaleza & cultura</p>
   <div id="paseos-static"></div>
   <div id="custom-paseos"></div>
 </div>
-
-<!-- URGENCIAS -->
 <div id="urgencias" class="section">
   <div class="sos-banner">
     <h3><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span id="t-emergency">Números de emergencia</span></h3>
@@ -320,23 +286,14 @@ textarea.a-input{resize:vertical;min-height:80px}
 
 </div><!-- /sections -->
 
-<!-- PDF FAB -->
 <button class="pdf-fab" onclick="printPDF()">
   <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
   <span id="t-pdf">Compartir PDF</span>
 </button>
 
-<!-- TRANSLATING OVERLAY -->
-<div class="translating-overlay" id="trans-overlay" style="display:none">
-  <div class="spinner"></div>
-  <p id="trans-msg">Traduciendo al inglés...</p>
-</div>
-
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 <div id="admin-panel">
   <div class="admin-box">
-
-    <!-- LOGIN -->
     <div id="admin-login">
       <div class="admin-secret">
         <h2>🔐 Panel del anfitrión</h2>
@@ -347,52 +304,40 @@ textarea.a-input{resize:vertical;min-height:80px}
         <button class="a-btn-sec" onclick="closeAdmin()">Cancelar</button>
       </div>
     </div>
-
-    <!-- CONTENT -->
     <div id="admin-content" style="display:none">
-      <h2>⚙️ Configuración de la guía</h2>
-      <p class="sub">Tus cambios se sincronizan automáticamente. Cualquier huésped que abra la guía verá la versión actualizada.</p>
-      <div class="sync-status" id="sync-status"></div>
+      <h2>⚙️ Configuración</h2>
+      <p class="admin-sub">Editá lo que necesitás, luego descargá el HTML actualizado y reemplazalo en GitHub.</p>
 
       <div class="a-section">
-        <h4>🏠 Identidad de la guía</h4>
-        <p class="a-sub">El nombre que aparece en el encabezado</p>
+        <h4>🏠 Identidad</h4>
         <label class="a-label">Nombre de la guía</label>
         <input class="a-input" id="cfg-title" placeholder="Stay Guide · Mi Depto">
-        <label class="a-label">Dirección (visible al huésped)</label>
+        <label class="a-label">Dirección</label>
         <input class="a-input" id="cfg-addr" placeholder="Calle 4 entre 64 y 65">
-        <label class="a-label">WhatsApp del anfitrión (solo números, sin +)</label>
+        <label class="a-label">WhatsApp (solo números, sin +)</label>
         <input class="a-input" id="cfg-wa" placeholder="5492211234567">
-        <label class="a-label">Versión actual</label>
-        <div style="display:flex;gap:8px;align-items:center">
-          <input class="a-input" id="cfg-version" placeholder="1.0.0" style="flex:1;margin:0">
+        <label class="a-label">Versión</label>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:5px">
+          <input class="a-input" id="cfg-version" style="flex:1;margin:0">
           <button type="button" onclick="bumpVersion()" style="padding:10px 14px;background:var(--brand-light);color:var(--brand);border:none;border-radius:10px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap">+1 patch</button>
         </div>
-        <p style="font-size:11px;color:var(--text-muted);margin-top:4px">Incrementá la versión cada vez que guardes cambios para saber qué versión está publicada</p>
       </div>
 
       <div class="a-section">
-        <h4>📋 Info del depto (aparece en Inicio)</h4>
-        <p class="a-sub">Una línea = un ítem de la lista</p>
-        <textarea class="a-input" id="cfg-tips" rows="6" placeholder="Check-in desde las 14 hs&#10;Check-out hasta las 11 hs&#10;Wi-Fi: NombreRed / contraseña123&#10;Pileta disponible en el edificio"></textarea>
+        <h4>📋 Info del depto</h4>
+        <p class="a-sub">Una línea = un ítem</p>
+        <textarea class="a-input" id="cfg-tips" rows="6" placeholder="Check-in desde las 14 hs&#10;Wi-Fi: nombre / clave&#10;Pileta disponible en el edificio"></textarea>
       </div>
 
       <div class="a-section">
-        <h4>🔑 Seguridad</h4>
-        <p class="a-sub">Dejá vacío para no cambiar la contraseña</p>
-        <label class="a-label">Nueva contraseña</label>
+        <h4>🔑 Contraseña del panel</h4>
+        <label class="a-label">Nueva contraseña (dejá vacío para no cambiar)</label>
         <input type="password" class="a-input" id="cfg-pw" placeholder="(sin cambios)">
       </div>
 
-      <button class="a-btn" id="save-btn" onclick="saveConfig()">💾 Guardar y cerrar</button>
-      <button class="a-btn-sec" onclick="closeAdmin()">Cerrar sin guardar</button>
-
-      <div style="height:1.5rem"></div>
-
       <div class="a-section">
-        <h4>➕ Agregar lugar recomendado</h4>
-        <p class="a-sub">Solo lo ves vos en el panel. El huésped lo ve en la guía.</p>
-        <label class="a-label">Nombre del lugar *</label>
+        <h4>➕ Agregar lugar</h4>
+        <label class="a-label">Nombre *</label>
         <input class="a-input" id="new-name" placeholder="Ej: Confitería El Gran Rex">
         <label class="a-label">Categoría *</label>
         <select class="a-input" id="new-cat">
@@ -410,9 +355,9 @@ textarea.a-input{resize:vertical;min-height:80px}
           <option value="urgencias">Urgencias</option>
           <option value="inicio">Inicio</option>
         </select>
-        <label class="a-label">Descripción corta *</label>
+        <label class="a-label">Descripción *</label>
         <input class="a-input" id="new-tip" placeholder="Ej: Las mejores empanadas del centro. L–D mediodía.">
-        <label class="a-label">Dirección / referencia</label>
+        <label class="a-label">Dirección</label>
         <input class="a-input" id="new-addr" placeholder="Ej: C. 50 740">
         <label class="a-label">Teléfono (opcional)</label>
         <input class="a-input" id="new-phone" placeholder="Ej: 2215001234" type="tel">
@@ -422,291 +367,383 @@ textarea.a-input{resize:vertical;min-height:80px}
       </div>
 
       <div class="a-section">
-        <h4>📍 Tus lugares</h4>
+        <h4>📍 Mis lugares agregados</h4>
         <div id="custom-places-list"><p style="font-size:13px;color:var(--text-muted)">No hay lugares personalizados aún.</p></div>
       </div>
 
-      <button class="a-btn-sec" onclick="closeAdmin()">Cerrar panel</button>
+      <button class="a-btn-dl" id="download-btn" onclick="downloadHTML()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar HTML actualizado
+      </button>
+      <button class="a-btn-sec" onclick="closeAdmin()">Cerrar sin guardar</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────────────────────────
-const JSONBIN_ID = '6a22c966da38895dfe8c4b8f';
-const JSONBIN_KEY = '$2a$10$your_master_key'; // update if needed
-const BIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_ID}`;
-const HEADERS_R = {'X-Master-Key': JSONBIN_KEY};
-const HEADERS_W = {'Content-Type':'application/json','X-Master-Key': JSONBIN_KEY};
-
-let cfg = {
-  title: 'Stay Guide',
-  addr: 'Calle 4 entre 64 y 65',
-  wa: '',
-  pw: '1234',
-  tips: 'Check-in desde las 14 hs\nCheck-out hasta las 11 hs\nWi-Fi: disponible en el depto\nAnte cualquier problema escribí al anfitrión',
-  places: [],
-  version: '1.0.0'
+// ── CONFIG — editá acá o desde el panel ───────────────────────────────────────
+const CFG = {
+  title:   'Stay Guide',
+  addr:    'Calle 4 entre 64 y 65',
+  wa:      '',           // ej: '5492211234567'
+  pw:      '1234',
+  version: '1.0.0',
+  tips:    'Check-in desde las 14 hs\nCheck-out hasta las 11 hs\nWi-Fi: disponible en el depto\nAnte cualquier problema escribí al anfitrión',
+  places:  []            // se rellena desde el panel
 };
+// ─────────────────────────────────────────────────────────────────────────────
 
-// translations cache per lang
-const transCache = {};
+// Runtime copy (no toques esto)
+let cfg = JSON.parse(JSON.stringify(CFG));
 let currentLang = 'es';
 let unlocked = false;
 
-// ── JSONBIN ───────────────────────────────────────────────────────────────────
-async function loadFromBin() {
-  try {
-    const r = await fetch(BIN_URL + '/latest', {headers: HEADERS_R});
-    if (r.ok) {
-      const d = await r.json();
-      if (d.record) cfg = Object.assign(cfg, d.record);
-    }
-  } catch(e) { console.warn('JSONBin load failed, using defaults'); }
-  applyConfig();
-  renderAllStaticCards('es');
-}
-
-async function saveToBin() {
-  const btn = document.getElementById('save-btn');
-  btn.disabled = true; btn.textContent = 'Guardando...';
-  try {
-    const r = await fetch(BIN_URL, {
-      method: 'PUT',
-      headers: HEADERS_W,
-      body: JSON.stringify(cfg)
-    });
-    const ok = r.ok;
-    showSync(ok ? '✅ Guardado y sincronizado' : '❌ Error al guardar', ok);
-    if (ok) setTimeout(closeAdmin, 1200);
-  } catch(e) {
-    showSync('❌ Sin conexión. Guardado solo local.', false);
-    setTimeout(closeAdmin, 1500);
-  }
-  btn.disabled = false; btn.textContent = '💾 Guardar y cerrar';
-}
-
-function showSync(msg, ok) {
-  const el = document.getElementById('sync-status');
-  el.textContent = msg;
-  el.className = 'sync-status ' + (ok ? 'sync-ok' : 'sync-err');
-  el.style.display = 'block';
-}
-
-// ── STATIC PLACE DATA ─────────────────────────────────────────────────────────
-const NAV = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>`;
+// ── SVG ICONS ─────────────────────────────────────────────────────────────────
+const NAV  = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>`;
 const CALL = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>`;
-const ICON_REST = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>`;
-const ICON_CAFE = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/></svg>`;
-const ICON_PIZZA = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"/></svg>`;
-const ICON_BURGER = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="16" x2="20" y2="16"/></svg>`;
-const ICON_SUSHI = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>`;
-const ICON_ICE = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v8m0 0C10 10 8 12 8 15a4 4 0 008 0c0-3-2-5-4-5z"/></svg>`;
-const ICON_BAR = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>`;
-const ICON_SUPER = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`;
-const ICON_FARM = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
-const ICON_CAR = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`;
-const ICON_PIN = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>`;
-const ICON_MED = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`;
+const I_REST  = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>`;
+const I_CAFE  = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/></svg>`;
+const I_PIZZA = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z"/></svg>`;
+const I_BURG  = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="16" x2="20" y2="16"/></svg>`;
+const I_SUSHI = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>`;
+const I_ICE   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v8m0 0C10 10 8 12 8 15a4 4 0 008 0c0-3-2-5-4-5z"/></svg>`;
+const I_BAR   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>`;
+const I_SUPER = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`;
+const I_FARM  = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
+const I_CAR   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`;
+const I_PIN   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>`;
+const I_MED   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`;
+const I_ATM   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`;
+const I_WASH  = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="13" r="5"/></svg>`;
+const I_VET   = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 015 5v3.5a3.5 3.5 0 01-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 017 10h2z"/></svg>`;
 
-// Static places — tip_key is used for AI translation
-const STATIC_PLACES = {
-  restaurantes: [
-    {name:'Guapo Bodegón Platense',stars:'4.3',walk:'~5 min a pie',addr:'C. 49 775',ci:'ci-g',icon:ICON_REST,tip_es:'Porciones enormes para compartir — ossobuco, matambre pizza y milanesas. Ambiente clásico. L–D mediodía y noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9173941,-57.9542328',phone:'+542216173895'},
-    {name:'La Bodeguita',stars:'4.0',walk:'~5 min a pie',addr:'Diag. 73 y 49',ci:'ci-g',icon:ICON_REST,tip_es:'Bar histórico de La Plata estilo vintage 70s. Bondiola a la riojana, cocina casera. L–D desde las 10 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9213608,-57.9583465',phone:''},
-    {name:'Santo Domingo Parrilla',stars:'4.3',walk:'~10 min a pie',addr:'Av. 13 y 61',ci:'ci-g',icon:ICON_REST,tip_es:'Parrilla completa con empanadas y asado. Excelente servicio. Ideal para una noche especial. Ma–D.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9273466,-57.9463298',phone:''},
-    {name:'Bodegón 7 y 70',stars:'4.2',walk:'~15 min a pie',addr:'Av. 7 1849',ci:'ci-g',icon:ICON_REST,tip_es:'Clásico enorme y económico. Milanesa para 3 personas, costillas riojanas. Precio increíble. L–D.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9293517,-57.9302791',phone:''},
-    {name:'BM Casa de Comidas',stars:'4.6',walk:'~15 min a pie',addr:'Comida para llevar',ci:'ci-a',icon:ICON_REST,tip_es:'Gran variedad de platos para llevar, opciones veganas y sin gluten. Muy económico. L–V 8–16 hs, S 9–14 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.926114,-57.9598854',phone:''},
-    {name:'El Buen Gusto',stars:'4.5',walk:'~15 min a pie',addr:'C. 11 504',ci:'ci-a',icon:ICON_REST,tip_es:'La mejor milanesa napolitana de La Plata según sus clientes. Porciones generosas. Ma–D mediodía y noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.912709,-57.9614884',phone:''},
-    {name:'65 Grados Veggie',stars:'4.7',walk:'~7 min a pie',addr:'Vegetariano',ci:'ci-g',icon:ICON_REST,tip_es:'Restaurante taiwanés vegetariano: dumplings, don de hongos, sushi vegano. L–S 8 a 21 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9123199,-57.9505496',phone:''},
+// ── STATIC PLACES ─────────────────────────────────────────────────────────────
+const P = {
+  restaurantes:[
+    {name:'Guapo Bodegón Platense',stars:'4.3',walk:'~5 min',addr:'C. 49 775',ci:'ci-g',icon:I_REST,phone:'+542216173895',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9173941,-57.9542328',
+     es:'Porciones enormes para compartir — ossobuco, matambre pizza y milanesas. L–D mediodía y noche.',
+     en:'Huge portions to share — ossobuco, matambre pizza and milanesas. Mon–Sun lunch & dinner.',
+     pt:'Porções enormes para compartilhar — ossobuco, matambre pizza e milanesas. Seg–Dom almoço e jantar.',
+     fr:'Énormes portions à partager — ossobuco, pizza matambre et milanaises. Lun–Dim déj. et dîner.'},
+    {name:'La Bodeguita',stars:'4.0',walk:'~5 min',addr:'Diag. 73 y 49',ci:'ci-g',icon:I_REST,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9213608,-57.9583465',
+     es:'Bar histórico estilo vintage 70s. Bondiola a la riojana, cocina casera. L–D desde las 10 hs.',
+     en:'Historic bar with 70s vintage style. Pork rioja-style, home cooking. Mon–Sun from 10 AM.',
+     pt:'Bar histórico estilo vintage anos 70. Costelinha à riojana, cozinha caseira. Seg–Dom a partir das 10h.',
+     fr:'Bar historique style vintage années 70. Porc à la riojana, cuisine maison. Lun–Dim dès 10h.'},
+    {name:'Santo Domingo Parrilla',stars:'4.3',walk:'~10 min',addr:'Av. 13 y 61',ci:'ci-g',icon:I_REST,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9273466,-57.9463298',
+     es:'Parrilla completa con empanadas y asado. Excelente servicio. Ideal para una noche especial.',
+     en:'Full grill with empanadas and asado. Excellent service. Great for a special night out.',
+     pt:'Churrasco completo com empanadas e assado. Excelente serviço. Ótimo para uma noite especial.',
+     fr:'Grill complet avec empanadas et asado. Excellent service. Idéal pour une soirée spéciale.'},
+    {name:'Bodegón 7 y 70',stars:'4.2',walk:'~15 min',addr:'Av. 7 1849',ci:'ci-g',icon:I_REST,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9293517,-57.9302791',
+     es:'Clásico enorme y económico. Milanesa para 3 personas, costillas riojanas. Precio increíble.',
+     en:'Classic, huge and very affordable. Milanese for 3, rioja-style ribs. Unbeatable price.',
+     pt:'Clássico, enorme e muito econômico. Milanesa para 3 pessoas, costela à riojana.',
+     fr:'Classique, énorme et très abordable. Milanaise pour 3, côtes à la riojana. Prix imbattable.'},
+    {name:'BM Casa de Comidas',stars:'4.6',walk:'~15 min',addr:'Para llevar',ci:'ci-a',icon:I_REST,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.926114,-57.9598854',
+     es:'Platos para llevar, opciones veganas y sin gluten. Muy económico. L–V 8–16 hs, S 9–14 hs.',
+     en:'Takeaway dishes, vegan and gluten-free options. Very affordable. Mon–Fri 8–16h, Sat 9–14h.',
+     pt:'Pratos para viagem, opções veganas e sem glúten. Muito acessível. Seg–Sex 8–16h, Sáb 9–14h.',
+     fr:'Plats à emporter, options véganes et sans gluten. Très abordable. Lun–Ven 8–16h, Sam 9–14h.'},
+    {name:'65 Grados Veggie',stars:'4.7',walk:'~7 min',addr:'Vegetariano',ci:'ci-g',icon:I_REST,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9123199,-57.9505496',
+     es:'Restaurante taiwanés vegetariano. Dumplings, don de hongos y sushi vegano. L–S 8–21 hs.',
+     en:'Taiwanese vegetarian restaurant. Dumplings, mushroom rice bowl, vegan sushi. Mon–Sat 8–21h.',
+     pt:'Restaurante taiwanês vegetariano. Dumplings, tigela de cogumelos, sushi vegano. Seg–Sáb 8–21h.',
+     fr:'Restaurant taïwanais végétarien. Dumplings, bol champignons, sushi végétalien. Lun–Sam 8–21h.'},
   ],
-  cafes: [
-    {name:'Folki Café y Cocina',stars:'4.8',walk:'~4 min a pie',addr:'C. 46 779',ci:'ci-a',icon:ICON_CAFE,tip_es:'Café artesanal con brunch, avocado toast y croissants. El más cercano al depto. Ma–D 9–20 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9155713,-57.9569357',phone:''},
-    {name:'Maylo Café',stars:'4.9',walk:'~3 min a pie',addr:'C. 48 858',ci:'ci-a',icon:ICON_CAFE,tip_es:'Café acogedor a solo 3 cuadras. Scones de queso increíbles y café de especialidad. L–V 7:30–19:30 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9186408,-57.9564634',phone:'+542216045503'},
-    {name:'Caféno',stars:'4.8',walk:'~10 min a pie',addr:'C. 44 540',ci:'ci-a',icon:ICON_CAFE,tip_es:'Specialty coffee minimalista. Flat white y magic espectaculares. L–V 7–19 hs, cerrado fines de semana.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9095478,-57.9538548',phone:''},
-    {name:'El Fin Café',stars:'4.8',walk:'~12 min a pie',addr:'C. 59 814',ci:'ci-a',icon:ICON_CAFE,tip_es:'Los cinnamon rolls más ricos de La Plata. Café de especialidad, ambiente tranquilo. L–S 8–20 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9241663,-57.9471346',phone:''},
-    {name:'YCaban',stars:'4.5',walk:'~10 min a pie',addr:'C. 11 y 49',ci:'ci-a',icon:ICON_CAFE,tip_es:'Café icónico de La Plata. Opciones veganas, sándwiches y menú del día. L–S 8–20 hs, D 12:30–20 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9179725,-57.9543725',phone:''},
-    {name:'Charola',stars:'4.2',walk:'~8 min a pie',addr:'C. 12 755',ci:'ci-a',icon:ICON_CAFE,tip_es:'3 pisos con terraza calefaccionada. Muy popular. Café, comidas y cócteles. L–D desde las 8 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9179896,-57.9571641',phone:''},
-    {name:'BONTÉ Boulangerie',stars:'5.0',walk:'~15 min a pie',addr:'Av. 60 459',ci:'ci-a',icon:ICON_CAFE,tip_es:'Panadería artesanal de culto. Croissants, schiacciata y sándwiches. L–V 7:30–18:30 hs, S hasta 12:30 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9181923,-57.9389199',phone:''},
+  cafes:[
+    {name:'Maylo Café',stars:'4.9',walk:'~3 min',addr:'C. 48 858',ci:'ci-a',icon:I_CAFE,phone:'+542216045503',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9186408,-57.9564634',
+     es:'El más cercano al depto. Scones de queso increíbles y café de especialidad. L–V 7:30–19:30 hs.',
+     en:'Closest to the apt. Incredible cheese scones and specialty coffee. Mon–Fri 7:30–19:30h.',
+     pt:'O mais próximo do apto. Scones de queijo incríveis e café de especialidade. Seg–Sex 7:30–19:30h.',
+     fr:'Le plus proche. Incroyables scones au fromage et café de spécialité. Lun–Ven 7:30–19:30h.'},
+    {name:'Folki Café y Cocina',stars:'4.8',walk:'~4 min',addr:'C. 46 779',ci:'ci-a',icon:I_CAFE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9155713,-57.9569357',
+     es:'Brunch, avocado toast, croissants y limonadas artesanales. Ma–D 9–20 hs.',
+     en:'Brunch, avocado toast, croissants and artisan lemonades. Tue–Sun 9–20h.',
+     pt:'Brunch, avocado toast, croissants e limonadas artesanais. Ter–Dom 9–20h.',
+     fr:'Brunch, avocado toast, croissants et limonades artisanales. Mar–Dim 9–20h.'},
+    {name:'El Fin Café',stars:'4.8',walk:'~12 min',addr:'C. 59 814',ci:'ci-a',icon:I_CAFE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9241663,-57.9471346',
+     es:'Los mejores cinnamon rolls de La Plata. Café de especialidad y ambiente tranquilo. L–S 8–20 hs.',
+     en:'Best cinnamon rolls in La Plata. Specialty coffee and quiet atmosphere. Mon–Sat 8–20h.',
+     pt:'Os melhores cinnamon rolls de La Plata. Café de especialidade e ambiente tranquilo. Seg–Sáb 8–20h.',
+     fr:'Les meilleurs cinnamon rolls de La Plata. Café de spécialité, ambiance calme. Lun–Sam 8–20h.'},
+    {name:'YCaban',stars:'4.5',walk:'~10 min',addr:'C. 11 y 49',ci:'ci-a',icon:I_CAFE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9179725,-57.9543725',
+     es:'Café icónico de La Plata. Opciones veganas, sándwiches y menú del día. L–S 8–20 hs, D 12:30–20 hs.',
+     en:'Iconic La Plata café. Vegan options, sandwiches, daily menu. Mon–Sat 8–20h, Sun 12:30–20h.',
+     pt:'Café icônico de La Plata. Opções veganas, sandes e menu do dia. Seg–Sáb 8–20h, Dom 12:30–20h.',
+     fr:'Café iconique de La Plata. Options véganes, sandwichs, menu du jour. Lun–Sam 8–20h, Dim 12:30–20h.'},
+    {name:'Charola',stars:'4.2',walk:'~8 min',addr:'C. 12 755',ci:'ci-a',icon:I_CAFE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9179896,-57.9571641',
+     es:'3 pisos con terraza calefaccionada. Café, comidas y cócteles. L–D desde las 8 hs.',
+     en:'3 floors with heated terrace. Coffee, food and cocktails. Mon–Sun from 8 AM.',
+     pt:'3 andares com terraço aquecido. Café, refeições e coquetéis. Seg–Dom a partir das 8h.',
+     fr:'3 étages avec terrasse chauffée. Café, plats et cocktails. Lun–Dim dès 8h.'},
+    {name:'BONTÉ Boulangerie',stars:'5.0',walk:'~15 min',addr:'Av. 60 459',ci:'ci-a',icon:I_CAFE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9181923,-57.9389199',
+     es:'Panadería artesanal de culto. Croissants, schiacciata y sándwiches de almuerzo. L–V 7:30–18:30 hs.',
+     en:'Cult artisan bakery. Croissants, schiacciata and lunch sandwiches. Mon–Fri 7:30–18:30h.',
+     pt:'Padaria artesanal de culto. Croissants, schiacciata e sandes de almoço. Seg–Sex 7:30–18:30h.',
+     fr:'Boulangerie artisanale culte. Croissants, schiacciata et sandwichs. Lun–Ven 7:30–18:30h.'},
   ],
-  pizzas: [
-    {name:'Pizza al Borde',stars:'4.7',walk:'~4 min a pie',addr:'C. 49 882',ci:'ci-a',icon:ICON_PIZZA,tip_es:'Borde crocante relleno de cheddar. Uno de los mejores de la ciudad. Ideal para trasnoche — abre hasta las 4 AM.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9196852,-57.9561035',phone:'+542215406543'},
-    {name:'La Pizze',stars:'4.9',walk:'~10 min a pie',addr:'C. 43 y 9',ci:'ci-a',icon:ICON_PIZZA,tip_es:'Pizza artesanal rellena con masa crujiente. El mejor puntaje del centro. Ma–D mediodía y noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9115652,-57.9585522',phone:''},
-    {name:'Pasillo 51',stars:'4.4',walk:'~12 min a pie',addr:'Av. 51 496',ci:'ci-a',icon:ICON_PIZZA,tip_es:'Ícono platense. 2 porciones + media birra a precio increíble. L–D mediodía y noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9133964,-57.9466394',phone:''},
-    {name:'Pizza Libre La Plata',stars:'4.1',walk:'~7 min a pie',addr:'C. 10 730',ci:'ci-a',icon:ICON_PIZZA,tip_es:'Tenedor libre de pizza al corte. Ideal para grupos, precio económico. Ma–D noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9156024,-57.9554491',phone:''},
+  pizzas:[
+    {name:'Pizza al Borde',stars:'4.7',walk:'~4 min',addr:'C. 49 882',ci:'ci-a',icon:I_PIZZA,phone:'+542215406543',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9196852,-57.9561035',
+     es:'Borde crocante relleno de cheddar. Uno de los mejores de la ciudad. Abre hasta las 4 AM.',
+     en:'Crispy cheddar-stuffed crust. One of the best in the city. Open until 4 AM.',
+     pt:'Borda crocante recheada de cheddar. Uma das melhores da cidade. Abre até as 4h.',
+     fr:'Bord croustillant fourré au cheddar. L\'une des meilleures. Ouvert jusqu\'à 4h.'},
+    {name:'La Pizze',stars:'4.9',walk:'~10 min',addr:'C. 43 y 9',ci:'ci-a',icon:I_PIZZA,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9115652,-57.9585522',
+     es:'Pizza artesanal rellena con masa crujiente. La mejor puntuada del centro. Ma–D.',
+     en:'Artisan stuffed pizza, crispy dough. Best rated in the area. Tue–Sun.',
+     pt:'Pizza artesanal recheada com massa crocante. Melhor avaliada do centro. Ter–Dom.',
+     fr:'Pizza artisanale fourrée à la pâte croustillante. La mieux notée du quartier. Mar–Dim.'},
+    {name:'Pasillo 51',stars:'4.4',walk:'~12 min',addr:'Av. 51 496',ci:'ci-a',icon:I_PIZZA,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9133964,-57.9466394',
+     es:'Ícono platense. 2 porciones + media birra a precio increíble. L–D mediodía y noche.',
+     en:'La Plata icon. 2 slices + half a beer at an incredible price. Mon–Sun.',
+     pt:'Ícone platense. 2 fatias + meia cerveja a preço incrível. Seg–Dom.',
+     fr:'Icône platense. 2 parts + demi-bière à prix incroyable. Lun–Dim.'},
+    {name:'Pizza Libre La Plata',stars:'4.1',walk:'~7 min',addr:'C. 10 730',ci:'ci-a',icon:I_PIZZA,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9156024,-57.9554491',
+     es:'Tenedor libre de pizza al corte. Ideal para grupos, precio económico. Ma–D noche.',
+     en:'All-you-can-eat pizza by the slice. Great for groups. Tue–Sun evenings.',
+     pt:'Rodízio de pizza por fatia. Ótimo para grupos. Ter–Dom à noite.',
+     fr:'Pizza à volonté à la coupe. Idéal pour les groupes. Mar–Dim le soir.'},
   ],
-  burgers: [
-    {name:'Gule',stars:'4.8',walk:'~3 min a pie',addr:'C. 46 781',ci:'ci-g',icon:ICON_BURGER,tip_es:'Smashed burgers artesanales. La de hongos y manteca es espectacular. Terraza y buenas cervezas craft. L–D.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9155661,-57.9567683',phone:'+542216746383'},
-    {name:'Blends Burger',stars:'4.6',walk:'~12 min a pie',addr:'C. 10 1096',ci:'ci-g',icon:ICON_BURGER,tip_es:'Las hamburguesas más grandes de La Plata, con papas increíbles. Hay un mural de Messi adentro. L–D.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9199708,-57.9496087',phone:''},
-    {name:"Pippi's Burger",stars:'5.0',walk:'~15 min a pie',addr:'Av. 19 1182',ci:'ci-g',icon:ICON_BURGER,tip_es:'Caseras, jugosas y con papas de corte artesanal. Atención excelente. L–D al mediodía y noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9294185,-57.9572191',phone:'+542213143207'},
+  burgers:[
+    {name:'Gule',stars:'4.8',walk:'~3 min',addr:'C. 46 781',ci:'ci-g',icon:I_BURG,phone:'+542216746383',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9155661,-57.9567683',
+     es:'Smashed burgers artesanales. La de hongos y manteca es espectacular. Terraza y cervezas craft. L–D.',
+     en:'Artisan smashed burgers. The mushroom & butter one is spectacular. Terrace, craft beers. Mon–Sun.',
+     pt:'Smashed burgers artesanais. A de cogumelo e manteiga é espetacular. Terraço e cervejas artesanais.',
+     fr:'Smashed burgers artisanaux. Celui aux champignons et beurre est spectaculaire. Terrasse, bières craft.'},
+    {name:'Blends Burger',stars:'4.6',walk:'~12 min',addr:'C. 10 1096',ci:'ci-g',icon:I_BURG,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9199708,-57.9496087',
+     es:'Las hamburguesas más grandes de La Plata. Hay un mural de Messi adentro. L–D.',
+     en:'The biggest burgers in La Plata. There is a Messi mural inside. Mon–Sun.',
+     pt:'Os maiores hambúrgueres de La Plata. Tem um mural do Messi dentro. Seg–Dom.',
+     fr:'Les plus grands burgers de La Plata. Il y a une fresque de Messi à l\'intérieur. Lun–Dim.'},
+    {name:"Pippi's Burger",stars:'5.0',walk:'~15 min',addr:'Av. 19 1182',ci:'ci-g',icon:I_BURG,phone:'+542213143207',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9294185,-57.9572191',
+     es:'Caseras y jugosas con papas de corte artesanal. Atención excelente. L–D.',
+     en:'Homemade, juicy with artisan-cut fries. Excellent service. Mon–Sun.',
+     pt:'Caseiros, suculentos com batatas artesanais. Excelente atendimento. Seg–Dom.',
+     fr:'Faits maison, juteux avec frites artisanales. Excellent service. Lun–Dim.'},
   ],
-  sushi: [
-    {name:'OMAKAI Sushi',stars:'4.8',walk:'~5 min a pie',addr:'Diag. 74 1433',ci:'ci-b',icon:ICON_SUSHI,tip_es:'Sushi premium a precio muy razonable. Piezas enormes con mucho relleno. Combinado de 30 piezas. L–S.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.914851,-57.9552878',phone:'+542216977753'},
-    {name:'Akari Sushi Bar',stars:'4.6',walk:'~5 min a pie',addr:'Diag. 74 1531',ci:'ci-b',icon:ICON_SUSHI,tip_es:'El mejor restaurante japonés de La Plata según turistas extranjeros. Sake caliente, postres espectaculares.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9164903,-57.9551281',phone:'+542214831262'},
-    {name:'KOI Dumplings',stars:'4.4',walk:'~15 min a pie',addr:'C. 22 899',ci:'ci-b',icon:ICON_SUSHI,tip_es:'Dumplings, baos, ramen y cócteles. Cocina pan-asiática con muy buena onda. L–D mediodía y noche.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9289446,-57.9653871',phone:''},
-    {name:'Rabbit Town',stars:'4.3',walk:'~12 min a pie',addr:'C. 54 y 4',ci:'ci-b',icon:ICON_SUSHI,tip_es:'Cocina internacional: tteokbokki, katsu, baos y cócteles creativos. Ambiente muy original. Ma–D.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9139579,-57.9442874',phone:''},
+  sushi:[
+    {name:'OMAKAI Sushi',stars:'4.8',walk:'~5 min',addr:'Diag. 74 1433',ci:'ci-b',icon:I_SUSHI,phone:'+542216977753',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.914851,-57.9552878',
+     es:'Sushi premium a precio muy razonable. Piezas enormes. Combinado de 30 piezas. L–S.',
+     en:'Premium sushi at very reasonable price. Huge pieces. 30-piece combo. Mon–Sat.',
+     pt:'Sushi premium a preço muito acessível. Peças enormes. Combinado de 30 peças. Seg–Sáb.',
+     fr:'Sushi premium à prix très raisonnable. Énormes pièces. Assortiment 30 pièces. Lun–Sam.'},
+    {name:'Akari Sushi Bar',stars:'4.6',walk:'~5 min',addr:'Diag. 74 1531',ci:'ci-b',icon:I_SUSHI,phone:'+542214831262',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9164903,-57.9551281',
+     es:'El mejor japonés de La Plata según turistas extranjeros. Sake caliente y postres increíbles.',
+     en:'Best Japanese in La Plata according to foreign visitors. Warm sake and incredible desserts.',
+     pt:'O melhor japonês de La Plata segundo visitantes estrangeiros. Saquê quente e sobremesas incríveis.',
+     fr:'Le meilleur japonais de La Plata selon les visiteurs étrangers. Saké chaud et desserts incroyables.'},
+    {name:'KOI Dumplings',stars:'4.4',walk:'~15 min',addr:'C. 22 899',ci:'ci-b',icon:I_SUSHI,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9289446,-57.9653871',
+     es:'Dumplings, baos, ramen y cócteles. Cocina pan-asiática con muy buena onda. L–D.',
+     en:'Dumplings, baos, ramen and cocktails. Pan-Asian cuisine, great vibes. Mon–Sun.',
+     pt:'Dumplings, baos, ramen e coquetéis. Cozinha pan-asiática com ótima atmosfera. Seg–Dom.',
+     fr:'Dumplings, baos, ramen et cocktails. Cuisine pan-asiatique, super ambiance. Lun–Dim.'},
+    {name:'Rabbit Town',stars:'4.3',walk:'~12 min',addr:'C. 54 y 4',ci:'ci-b',icon:I_SUSHI,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9139579,-57.9442874',
+     es:'Tteokbokki, katsu, baos y cócteles creativos. Ambiente muy original. Ma–D.',
+     en:'Tteokbokki, katsu, baos and creative cocktails. Very original atmosphere. Tue–Sun.',
+     pt:'Tteokbokki, katsu, baos e coquetéis criativos. Ambiente muito original. Ter–Dom.',
+     fr:'Tteokbokki, katsu, baos et cocktails créatifs. Atmosphère très originale. Mar–Dim.'},
   ],
-  heladerias: [
-    {name:'Vipentto',stars:'4.6',walk:'~12 min a pie',addr:'C. 4 1105',ci:'ci-b',icon:ICON_ICE,tip_es:'Una de las mejores heladerías de La Plata. Porciones generosas, sabores creativos. L–D desde la 1 PM.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.914705,-57.9432892',phone:''},
-    {name:'La Sorbetiere',stars:'4.2',walk:'~5 min a pie',addr:'C. 11 899',ci:'ci-b',icon:ICON_ICE,tip_es:'Heladería y restaurante con rooftop bar con vista a la Catedral y Plaza Moreno. Vista increíble al atardecer.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9185679,-57.9539423',phone:''},
+  heladerias:[
+    {name:'Vipentto',stars:'4.6',walk:'~12 min',addr:'C. 4 1105',ci:'ci-b',icon:I_ICE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.914705,-57.9432892',
+     es:'Una de las mejores heladerías de La Plata. Porciones generosas y sabores creativos. L–D desde la 1 PM.',
+     en:'One of the best ice cream shops in La Plata. Generous portions, creative flavors. Mon–Sun from 1 PM.',
+     pt:'Uma das melhores sorveteiras de La Plata. Porções generosas, sabores criativos. Seg–Dom a partir das 13h.',
+     fr:'L\'une des meilleures glaceries de La Plata. Portions généreuses, saveurs créatives. Lun–Dim dès 13h.'},
+    {name:'La Sorbetiere',stars:'4.2',walk:'~5 min',addr:'C. 11 899',ci:'ci-b',icon:I_ICE,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9185679,-57.9539423',
+     es:'Heladería con rooftop bar con vista a la Catedral y Plaza Moreno. Increíble al atardecer.',
+     en:'Ice cream shop with rooftop bar overlooking the Cathedral. Stunning at sunset.',
+     pt:'Sorveteria com rooftop bar com vista para a Catedral. Incrível ao pôr do sol.',
+     fr:'Glacerie avec rooftop bar vue sur la Cathédrale. Magnifique au coucher du soleil.'},
   ],
-  bares: [
-    {name:'Wild Hops',stars:'4.2',walk:'~5 min a pie',addr:'Diag. 74',ci:'ci-a',icon:ICON_BAR,tip_es:'Cerveza artesanal y cócteles, buena onda. Muy animado los fines de semana. L–D desde las 17:30 hs, hasta las 5 AM.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9165971,-57.9547025',phone:''},
-    {name:'Bye Henry 44',stars:'4.1',walk:'~12 min a pie',addr:'Av. 44 1114',ci:'ci-a',icon:ICON_BAR,tip_es:'Cervecería artesanal con enorme variedad de birras, hamburguesas y picadas. Ma–D 18 hs hasta las 5 AM.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9203725,-57.965661',phone:''},
-    {name:'Amsterdam Baxar',stars:'4.4',walk:'~12 min a pie',addr:'Av. 51 y 5',ci:'ci-a',icon:ICON_BAR,tip_es:'Bar con calamares, papas y cócteles bien preparados. Excelente atención. Fines de semana.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9137422,-57.9478722',phone:''},
-    {name:'Lemmens Cervecería',stars:'4.0',walk:'~5 min a pie',addr:'Diag. 74 1630',ci:'ci-a',icon:ICON_BAR,tip_es:'Cervecería con pizza, hamburguesas y mucha variedad de birras. Abierta todos los días desde las 9 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9186038,-57.9545586',phone:''},
+  bares:[
+    {name:'Wild Hops',stars:'4.2',walk:'~5 min',addr:'Diag. 74',ci:'ci-a',icon:I_BAR,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9165971,-57.9547025',
+     es:'Cerveza artesanal y cócteles. Muy animado los fines de semana. L–D desde las 17:30 hs, hasta las 5 AM.',
+     en:'Craft beer and cocktails. Very lively on weekends. Mon–Sun from 17:30, until 5 AM.',
+     pt:'Cerveja artesanal e coquetéis. Muito animado nos fins de semana. Seg–Dom a partir das 17:30h, até as 5h.',
+     fr:'Bière artisanale et cocktails. Très animé le week-end. Lun–Dim dès 17:30, jusqu\'à 5h.'},
+    {name:'Bye Henry 44',stars:'4.1',walk:'~12 min',addr:'Av. 44 1114',ci:'ci-a',icon:I_BAR,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9203725,-57.965661',
+     es:'Cervecería artesanal con enorme variedad de birras, hamburguesas y picadas. Ma–D 18 hs hasta las 5 AM.',
+     en:'Craft brewery with huge beer selection, burgers and snacks. Tue–Sun 18h until 5 AM.',
+     pt:'Cervejaria artesanal com enorme seleção de cervejas, hambúrgueres e petiscos. Ter–Dom 18h até as 5h.',
+     fr:'Brasserie artisanale, énorme sélection de bières, burgers et tapas. Mar–Dim 18h jusqu\'à 5h.'},
+    {name:'Amsterdam Baxar',stars:'4.4',walk:'~12 min',addr:'Av. 51 y 5',ci:'ci-a',icon:I_BAR,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9137422,-57.9478722',
+     es:'Calamares, papas y cócteles bien preparados. Excelente atención. Fines de semana.',
+     en:'Calamari, potatoes and well-made cocktails. Excellent service. Weekends.',
+     pt:'Calamares, batatas e coquetéis bem preparados. Excelente atendimento. Fins de semana.',
+     fr:'Calamars, pommes de terre et cocktails bien préparés. Excellent service. Week-ends.'},
+    {name:'Lemmens Cervecería',stars:'4.0',walk:'~5 min',addr:'Diag. 74 1630',ci:'ci-a',icon:I_BAR,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9186038,-57.9545586',
+     es:'Cervecería con pizza, hamburguesas y gran variedad de birras. L–D desde las 9 hs.',
+     en:'Brewery with pizza, burgers and a wide variety of beers. Mon–Sun from 9 AM.',
+     pt:'Cervejaria com pizza, hambúrgueres e grande variedade de cervejas. Seg–Dom a partir das 9h.',
+     fr:'Brasserie avec pizza, burgers et grande variété de bières. Lun–Dim dès 9h.'},
   ],
-  supers_24: [
-    {name:'Carrefour Market',stars:'4.0',walk:'~6 min a pie',addr:'Av. 7 767',ci:'ci-b',icon:ICON_SUPER,tip_es:'El más cercano al depto. Ideal para compras rápidas. Abierto las 24 hs todos los días.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9134179,-57.9519421',phone:''},
-    {name:"Gringo's 24 hs",stars:'4.1',walk:'~15 min a pie',addr:'Av. 7 1615',ci:'ci-b',icon:ICON_SUPER,tip_es:'Supermercado completo con carnicería. Abierto las 24 hs, todos los días.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9250584,-57.9362258',phone:''},
+  supers_24:[
+    {name:'Carrefour Market',stars:'4.0',walk:'~6 min',addr:'Av. 7 767',ci:'ci-b',icon:I_SUPER,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9134179,-57.9519421',
+     es:'El más cercano al depto. Ideal para compras rápidas. Abierto las 24 hs.',
+     en:'Closest to the apt. Perfect for quick shopping. Open 24 hours.',
+     pt:'O mais próximo do apto. Perfeito para compras rápidas. Aberto 24 horas.',
+     fr:'Le plus proche. Parfait pour les courses rapides. Ouvert 24h/24.'},
+    {name:"Gringo's 24 hs",stars:'4.1',walk:'~15 min',addr:'Av. 7 1615',ci:'ci-b',icon:I_SUPER,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9250584,-57.9362258',
+     es:'Supermercado completo con carnicería. Abierto las 24 hs, todos los días.',
+     en:'Full supermarket with butcher. Open 24 hours every day.',
+     pt:'Supermercado completo com açougue. Aberto 24 horas todos os dias.',
+     fr:'Supermarché complet avec boucherie. Ouvert 24h/24, tous les jours.'},
   ],
-  supers_normal: [
-    {name:'Supermercados DIA',stars:'4.0',walk:'~5 min a pie',addr:'C. 48 944',ci:'ci-b',icon:ICON_SUPER,tip_es:'El más cercano para el día a día. L–D de 8 a 22 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9200937,-57.9581002',phone:''},
-    {name:'Carrefour Hipermercado',stars:'',walk:'En auto ~15 min',addr:'Camino Belgrano',ci:'ci-x',icon:ICON_SUPER,tip_es:'Para compras grandes: alimentos, ropa y electrodomésticos. L–D de 8 a 22 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.8937602,-57.9963701',phone:''},
+  supers_normal:[
+    {name:'Supermercados DIA',stars:'4.0',walk:'~5 min',addr:'C. 48 944',ci:'ci-b',icon:I_SUPER,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9200937,-57.9581002',
+     es:'El más cercano para el día a día. L–D de 8 a 22 hs.',
+     en:'Closest for daily shopping. Mon–Sun 8–22h.',
+     pt:'O mais próximo para o dia a dia. Seg–Dom 8–22h.',
+     fr:'Le plus proche pour le quotidien. Lun–Dim 8–22h.'},
+    {name:'Carrefour Hipermercado',stars:'',walk:'~15 min en auto',addr:'Camino Belgrano',ci:'ci-x',icon:I_SUPER,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.8937602,-57.9963701',
+     es:'Para compras grandes: alimentos, ropa y electrodomésticos. L–D 8–22 hs.',
+     en:'For big shopping: food, clothing and appliances. Mon–Sun 8–22h.',
+     pt:'Para compras grandes: alimentos, roupas e eletrodomésticos. Seg–Dom 8–22h.',
+     fr:'Pour les grosses courses: alimentation, vêtements et électroménager. Lun–Dim 8–22h.'},
   ],
-  farmacias: [
-    {name:'Farmacia Zucolillo',stars:'4.9',walk:'~8 min a pie',addr:'C. 48 y 4',ci:'ci-g',icon:ICON_FARM,tip_es:'La mejor puntuada del centro. Atención excepcional. L–V 8:30–20:30 hs, S 9–13 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9107319,-57.9481455',phone:'+542214218291'},
-    {name:'Farmacia 44',stars:'4.4',walk:'~12 min a pie',addr:'Av. 44 y 15',ci:'ci-g',icon:ICON_FARM,tip_es:'Farmacia de barrio con buen stock y buena atención. L–V 8:30–20 hs, S 9–13 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9182508,-57.96329',phone:'+542214824750'},
+  farmacias:[
+    {name:'Farmacia Zucolillo',stars:'4.9',walk:'~8 min',addr:'C. 48 y 4',ci:'ci-g',icon:I_FARM,phone:'+542214218291',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9107319,-57.9481455',
+     es:'La mejor puntuada del centro. Atención excepcional. L–V 8:30–20:30 hs, S 9–13 hs.',
+     en:'Best-rated downtown. Exceptional service. Mon–Fri 8:30–20:30h, Sat 9–13h.',
+     pt:'A melhor avaliada do centro. Atendimento excepcional. Seg–Sex 8:30–20:30h, Sáb 9–13h.',
+     fr:'La mieux notée du centre. Service exceptionnel. Lun–Ven 8:30–20:30h, Sam 9–13h.'},
+    {name:'Farmacia 44',stars:'4.4',walk:'~12 min',addr:'Av. 44 y 15',ci:'ci-g',icon:I_FARM,phone:'+542214824750',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9182508,-57.96329',
+     es:'Farmacia de barrio con buen stock. L–V 8:30–20 hs, S 9–13 hs.',
+     en:'Neighborhood pharmacy with good stock. Mon–Fri 8:30–20h, Sat 9–13h.',
+     pt:'Farmácia de bairro com bom estoque. Seg–Sex 8:30–20h, Sáb 9–13h.',
+     fr:'Pharmacie de quartier avec bon stock. Lun–Ven 8:30–20h, Sam 9–13h.'},
   ],
-  traslados: [
-    {name:'Remises Horizonte',stars:'4.4',walk:'24 hs · App y WhatsApp',addr:'',ci:'ci-g',icon:ICON_CAR,tip_es:'Los más usados de La Plata. Tienen app propia y pedido por WhatsApp. Muy confiables.',map:'',phone:'+542214833030'},
-    {name:'Señorial Remises',stars:'4.0',walk:'24 hs',addr:'',ci:'ci-x',icon:ICON_CAR,tip_es:'Alternativa confiable. Recomendado reservar con anticipación en horarios pico.',map:'',phone:'+542213011770'},
-    {name:'Cajero Banco Nación',stars:'',walk:'24 hs',addr:'C. 4 y 48',ci:'ci-b',icon:`<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,tip_es:'Cajero automático disponible las 24 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9004128,-57.9618698',phone:''},
-    {name:'La Lavandería',stars:'4.0',walk:'~15 min a pie',addr:'C. 7 1242',ci:'ci-b',icon:`<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="13" r="5"/></svg>`,tip_es:'Única con autoservicio en el centro. Lavado completo o autoservicio. L–S 8–20, D 9–19 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9188907,-57.9438829',phone:'+542216257017'},
+  traslados:[
+    {name:'Remises Horizonte',stars:'4.4',walk:'24 hs',addr:'',ci:'ci-g',icon:I_CAR,phone:'+542214833030',map:'',
+     es:'Los más usados de La Plata. App propia y pedido por WhatsApp. Muy confiables.',
+     en:'Most used in La Plata. Own app and WhatsApp ordering. Very reliable.',
+     pt:'Os mais usados de La Plata. App próprio e pedido por WhatsApp. Muito confiáveis.',
+     fr:'Les plus utilisés de La Plata. Application propre et WhatsApp. Très fiables.'},
+    {name:'Señorial Remises',stars:'4.0',walk:'24 hs',addr:'',ci:'ci-x',icon:I_CAR,phone:'+542213011770',map:'',
+     es:'Alternativa confiable. Reservar con anticipación en horarios pico.',
+     en:'Reliable alternative. Book ahead during peak hours.',
+     pt:'Alternativa confiável. Reservar com antecedência nos horários de pico.',
+     fr:'Alternative fiable. Réserver à l\'avance aux heures de pointe.'},
+    {name:'Cajero Banco Nación',stars:'',walk:'24 hs',addr:'C. 4 y 48',ci:'ci-b',icon:I_ATM,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9004128,-57.9618698',
+     es:'Cajero automático disponible las 24 hs, sobre calle 4.',
+     en:'ATM available 24 hours on calle 4.',
+     pt:'Caixa eletrônico disponível 24 horas na calle 4.',
+     fr:'Distributeur automatique disponible 24h/24, sur la calle 4.'},
+    {name:'La Lavandería',stars:'4.0',walk:'~15 min',addr:'C. 7 1242',ci:'ci-b',icon:I_WASH,phone:'+542216257017',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9188907,-57.9438829',
+     es:'Única con autoservicio en el centro. Lavado completo o self-service. L–S 8–20 hs, D 9–19 hs.',
+     en:'Only self-service laundromat downtown. Full wash or self-service. Mon–Sat 8–20h, Sun 9–19h.',
+     pt:'Única lavanderia self-service do centro. Lavagem completa ou self-service. Seg–Sáb 8–20h, Dom 9–19h.',
+     fr:'Seule laverie libre-service du centre. Lavage complet ou libre-service. Lun–Sam 8–20h, Dim 9–19h.'},
   ],
-  paseos: [
-    {name:'Paseo del Bosque',stars:'4.5',walk:'~20 min a pie',addr:'Abierto 24 hs',ci:'ci-g',icon:ICON_PIN,tip_es:'60 hectáreas de bosque urbano con lago, senderos para correr y andar en bici. Gratis, ideal para picnic.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9083959,-57.9349994',phone:''},
-    {name:'Catedral de La Plata',stars:'',walk:'~10 min a pie',addr:'Plaza Moreno',ci:'ci-b',icon:ICON_PIN,tip_es:'Una de las catedrales góticas más grandes de América Latina. Entrada gratuita. Impresionante por dentro.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9213,-57.9554',phone:''},
-    {name:'Museo de Ciencias Naturales',stars:'',walk:'~25 min a pie',addr:'Paseo del Bosque',ci:'ci-b',icon:ICON_PIN,tip_es:'Uno de los más importantes de Latinoamérica. Dinosaurios, mamíferos gigantes, colecciones únicas. Ma–D 10–18 hs.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9079,-57.9316',phone:''},
-    {name:'La Sorbetiere Rooftop',stars:'4.2',walk:'~5 min a pie',addr:'Vista a la Catedral',ci:'ci-b',icon:ICON_PIN,tip_es:'Terraza bar con vista directa a la Catedral y Plaza Moreno. El mejor lugar para el atardecer de La Plata.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9185679,-57.9539423',phone:''},
+  paseos:[
+    {name:'Paseo del Bosque',stars:'4.5',walk:'~20 min',addr:'Abierto 24 hs',ci:'ci-g',icon:I_PIN,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9083959,-57.9349994',
+     es:'60 hectáreas de bosque urbano con lago y senderos. Gratis, ideal para picnic.',
+     en:'60 hectares of urban forest with lake and trails. Free, perfect for a picnic.',
+     pt:'60 hectares de floresta urbana com lago e trilhas. Gratuito, ótimo para piquenique.',
+     fr:'60 hectares de forêt urbaine avec lac et sentiers. Gratuit, idéal pour un pique-nique.'},
+    {name:'Catedral de La Plata',stars:'',walk:'~10 min',addr:'Plaza Moreno',ci:'ci-b',icon:I_PIN,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9213,-57.9554',
+     es:'Una de las catedrales góticas más grandes de América Latina. Entrada gratuita.',
+     en:'One of the largest Gothic cathedrals in Latin America. Free entry.',
+     pt:'Uma das maiores catedrais góticas da América Latina. Entrada gratuita.',
+     fr:'L\'une des plus grandes cathédrales gothiques d\'Amérique latine. Entrée gratuite.'},
+    {name:'Museo de Ciencias Naturales',stars:'',walk:'~25 min',addr:'Paseo del Bosque',ci:'ci-b',icon:I_PIN,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9079,-57.9316',
+     es:'Dinosaurios, mamíferos gigantes y colecciones únicas. Uno de los más importantes de Latinoamérica. Ma–D 10–18 hs.',
+     en:'Dinosaurs, giant mammals and unique collections. One of the most important in Latin America. Tue–Sun 10–18h.',
+     pt:'Dinossauros, mamíferos gigantes e coleções únicas. Um dos mais importantes da América Latina. Ter–Dom 10–18h.',
+     fr:'Dinosaures, mammifères géants et collections uniques. L\'un des plus importants d\'Amérique latine. Mar–Dim 10–18h.'},
+    {name:'La Sorbetiere Rooftop',stars:'4.2',walk:'~5 min',addr:'Vista a la Catedral',ci:'ci-b',icon:I_PIN,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9185679,-57.9539423',
+     es:'Terraza bar con vista directa a la Catedral. El mejor atardecer de La Plata.',
+     en:'Rooftop bar with direct view of the Cathedral. Best sunset in La Plata.',
+     pt:'Bar no terraço com vista para a Catedral. Melhor pôr do sol de La Plata.',
+     fr:'Bar rooftop avec vue sur la Cathédrale. Le meilleur coucher de soleil de La Plata.'},
   ],
-  urgencias: [
-    {name:'Emergency Medical UDEC',stars:'4.3',walk:'24 hs',addr:'Av. 13 876',ci:'ci-r',icon:ICON_MED,tip_es:'Emergencias médicas domiciliarias 24 hs. Muy bien valorado, excelente tiempo de respuesta.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9202141,-57.9559563',phone:'+542214393400'},
-    {name:'Instituto Central de Medicina',stars:'',walk:'24 hs',addr:'C. 43 577',ci:'ci-r',icon:ICON_MED,tip_es:'Clínica privada con guardia médica 24 hs. Para urgencias sin turno previo, a ~10 min a pie.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9093582,-57.9561233',phone:'+542214231142'},
-    {name:'Veterinaria AMPA',stars:'5.0',walk:'~15 min a pie',addr:'Av. 60 505',ci:'ci-g',icon:`<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 015 5v3.5a3.5 3.5 0 01-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 017 10h2z"/></svg>`,tip_es:'Excelente trato, urgencias las 24 hs. La mejor veterinaria del centro de La Plata.',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9190737,-57.9398934',phone:''},
+  urgencias:[
+    {name:'Emergency Medical UDEC',stars:'4.3',walk:'24 hs',addr:'Av. 13 876',ci:'ci-r',icon:I_MED,phone:'+542214393400',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9202141,-57.9559563',
+     es:'Emergencias médicas domiciliarias 24 hs. Muy bien valorado.',
+     en:'Medical home emergencies 24h. Highly rated.',
+     pt:'Emergências médicas domiciliares 24h. Muito bem avaliado.',
+     fr:'Urgences médicales à domicile 24h. Très bien noté.'},
+    {name:'Instituto Central de Medicina',stars:'',walk:'24 hs',addr:'C. 43 577',ci:'ci-r',icon:I_MED,phone:'+542214231142',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9093582,-57.9561233',
+     es:'Clínica privada con guardia médica 24 hs. Sin turno previo. A ~10 min a pie.',
+     en:'Private clinic with 24h medical emergency service. Walk-in. ~10 min walk.',
+     pt:'Clínica privada com plantão médico 24h. Sem hora marcada. A ~10 min a pé.',
+     fr:'Clinique privée avec urgences 24h. Sans rendez-vous. À ~10 min à pied.'},
+    {name:'Veterinaria AMPA',stars:'5.0',walk:'~15 min',addr:'Av. 60 505',ci:'ci-g',icon:I_VET,phone:'',map:'https://www.google.com/maps/dir/?api=1&origin=-34.9205,-57.9536&destination=-34.9190737,-57.9398934',
+     es:'Excelente trato, urgencias 24 hs. La mejor veterinaria del centro.',
+     en:'Excellent care, 24h emergencies. Best vet downtown.',
+     pt:'Excelente atendimento, urgências 24h. A melhor veterinária do centro.',
+     fr:'Excellent accueil, urgences 24h. La meilleure vétérinaire du centre.'},
   ],
 };
 
-// translated tips cache
-const tipCache = {}; // tipCache[lang][placeName] = translated tip
+// ── UI TEXT ───────────────────────────────────────────────────────────────────
+const UI = {
+  es:{welcome:'Bienvenido/a',h1:'Tu guía <em>local</em>',tabs:['Inicio','Restaurantes','Cafés','Pizzerías','Burgers','Sushi & Asia','Heladerías','Bares','Supers','Farmacias','Traslados','Paseos','Urgencias'],aptinfo:'Info del departamento',contact:'Contacto del anfitrión',walabel:'WhatsApp',wamsg:'Escribir mensaje',responds:'Responde en',resptime:'Menos de 1 hora',attention:'Atención',atthours:'Las 24 hs',howarrive:'Cómo llegar',addrlabel:'Dirección',city:'Ciudad',openmaps:'Abrir en Google Maps',pdf:'Compartir PDF',secrest:'Bodegones & Parrillas',seccafe:'Specialty coffee & Brunch',secpizza:'Las mejores de La Plata',secburger:'Las mejores hamburguesas',secsushi:'Sushi & Cocina asiática',sechela:'Heladerías',secbar:'Bares & Cervecerías',sec24:'Abiertos 24 hs',secnormal:'Horario normal',farmduty:'Farmacias de turno',farmtip:'Las farmacias rotan guardias. Buscá la de turno en <strong>colfarmalp.org.ar</strong>',moverse:'Moverse en La Plata',secremises:'Remises recomendados',descubrir:'La Plata para descubrir',secnature:'Naturaleza & cultura',emergency:'Números de emergencia',emerg:'Emergencias',fire:'Bomberos',same:'SAME',police:'Policía',secmedurg:'Urgencias médicas',directions:'Cómo llegar',call:'Llamar',trasladostips:'Uber y Cabify funcionan normalmente|Remises: la opción local más confiable|Terminal de ómnibus: ~15 min en remis|Tren a Buenos Aires: ~20 min a pie',paseostips:'Catedral y Plaza Moreno a ~10 min a pie|El Bosque y Museo de Ciencias Naturales, imperdibles|Ciudad en cuadrícula diagonal, fácil de recorrer a pie|Rooftop La Sorbetiere: mejor atardecer de la ciudad'},
+  en:{welcome:'Welcome',h1:'Your <em>local</em> guide',tabs:['Home','Restaurants','Cafés','Pizzerias','Burgers','Sushi & Asia','Ice Cream','Bars','Markets','Pharmacies','Transport','Sightseeing','Emergencies'],aptinfo:'Apartment info',contact:'Host contact',walabel:'WhatsApp',wamsg:'Send message',responds:'Response time',resptime:'Under 1 hour',attention:'Support',atthours:'24/7',howarrive:'How to get here',addrlabel:'Address',city:'City',openmaps:'Open in Google Maps',pdf:'Share PDF',secrest:'Steakhouses & Grills',seccafe:'Specialty coffee & Brunch',secpizza:'Best pizzas in La Plata',secburger:'Best burgers',secsushi:'Sushi & Asian cuisine',sechela:'Ice cream shops',secbar:'Bars & Breweries',sec24:'Open 24 hours',secnormal:'Regular hours',farmduty:'On-duty pharmacies',farmtip:'Pharmacies rotate on-call. Check <strong>colfarmalp.org.ar</strong>',moverse:'Getting around La Plata',secremises:'Recommended remises',descubrir:'La Plata highlights',secnature:'Nature & culture',emergency:'Emergency numbers',emerg:'Emergencies',fire:'Fire dept.',same:'Ambulance',police:'Police',secmedurg:'Medical emergencies',directions:'Directions',call:'Call',trasladostips:'Uber and Cabify work normally|Remises (local cabs) are reliable and widely used|Bus terminal: ~15 min by remis|Train to Buenos Aires: ~20 min walk',paseostips:'Cathedral & Plaza Moreno ~10 min walk|El Bosque park and Natural History Museum, unmissable|Perfect diagonal grid, great for walking|La Sorbetiere rooftop: best sunset in the city'},
+  pt:{welcome:'Bem-vindo/a',h1:'Seu guia <em>local</em>',tabs:['Início','Restaurantes','Cafés','Pizzarias','Hambúrgueres','Sushi & Ásia','Sorveterias','Bares','Mercados','Farmácias','Transporte','Passeios','Emergências'],aptinfo:'Info do apartamento',contact:'Contato do anfitrião',walabel:'WhatsApp',wamsg:'Enviar mensagem',responds:'Responde em',resptime:'Menos de 1 hora',attention:'Atendimento',atthours:'24 horas',howarrive:'Como chegar',addrlabel:'Endereço',city:'Cidade',openmaps:'Abrir no Google Maps',pdf:'Compartilhar PDF',secrest:'Churrascarias & Grelhados',seccafe:'Café especial & Brunch',secpizza:'Melhores pizzas de La Plata',secburger:'Melhores hambúrgueres',secsushi:'Sushi & Cozinha asiática',sechela:'Sorveterias',secbar:'Bares & Cervejarias',sec24:'Abertos 24h',secnormal:'Horário normal',farmduty:'Farmácias de plantão',farmtip:'As farmácias se revezam. Consulte <strong>colfarmalp.org.ar</strong>',moverse:'Como se locomover em La Plata',secremises:'Remises recomendados',descubrir:'La Plata para descobrir',secnature:'Natureza & cultura',emergency:'Números de emergência',emerg:'Emergências',fire:'Bombeiros',same:'SAMU',police:'Polícia',secmedurg:'Urgências médicas',directions:'Como chegar',call:'Ligar',trasladostips:'Uber e Cabify funcionam normalmente|Remises (táxis locais) são confiáveis|Terminal de ônibus: ~15 min de remis|Trem para Buenos Aires: ~20 min a pé',paseostips:'Catedral e Plaza Moreno a ~10 min a pé|O Bosque e o Museu de Ciências Naturais, imperdíveis|Cidade em grade diagonal, fácil de percorrer a pé|Rooftop La Sorbetiere: melhor pôr do sol da cidade'},
+  fr:{welcome:'Bienvenue',h1:'Votre guide <em>local</em>',tabs:['Accueil','Restaurants','Cafés','Pizzerias','Burgers','Sushi & Asie','Glaces','Bars','Supermarchés','Pharmacies','Transport','Visites','Urgences'],aptinfo:"Info sur l'appartement",contact:"Contact de l'hôte",walabel:'WhatsApp',wamsg:'Envoyer un message',responds:'Temps de réponse',resptime:"Moins d'1 heure",attention:'Assistance',atthours:'24h/24',howarrive:'Comment arriver',addrlabel:'Adresse',city:'Ville',openmaps:'Ouvrir dans Google Maps',pdf:'Partager PDF',secrest:'Grillades & Bodegones',seccafe:'Café de spécialité & Brunch',secpizza:'Meilleures pizzas de La Plata',secburger:'Meilleurs burgers',secsushi:'Sushi & Cuisine asiatique',sechela:'Glaciers',secbar:'Bars & Brasseries',sec24:'Ouverts 24h/24',secnormal:'Horaires normaux',farmduty:'Pharmacies de garde',farmtip:'Les pharmacies tournent. Consultez <strong>colfarmalp.org.ar</strong>',moverse:'Se déplacer à La Plata',secremises:'Remises recommandés',descubrir:'La Plata à découvrir',secnature:'Nature & culture',emergency:"Numéros d'urgence",emerg:'Urgences',fire:'Pompiers',same:'SAMU',police:'Police',secmedurg:'Urgences médicales',directions:'Y aller',call:'Appeler',trasladostips:"Uber et Cabify fonctionnent normalement|Les remises (taxis locaux) sont fiables|Terminal de bus: ~15 min en remis|Train vers Buenos Aires: ~20 min à pied",paseostips:"Cathédrale et Plaza Moreno à ~10 min à pied|El Bosque et le Musée d'Histoire Naturelle, incontournables|Ville en grille diagonale, facile à parcourir|Rooftop La Sorbetiere: meilleur coucher de soleil de la ville"},
+};
 
+// ── RENDER ────────────────────────────────────────────────────────────────────
 function buildCard(p, lang) {
-  const tip = (lang!=='es' && tipCache[lang] && tipCache[lang][p.name]) ? tipCache[lang][p.name] : p.tip_es;
-  const dirBtn = p.map ? `<a class="map-btn" href="${p.map}" target="_blank">${NAV} <span>${lang==='en'?'Directions':lang==='pt'?'Como chegar':lang==='fr'?"Y aller":'Cómo llegar'}</span></a>` : '';
-  const callBtn = p.phone ? `<a class="call-btn" href="tel:${p.phone}">${CALL} <span>${lang==='en'?'Call':lang==='pt'?'Ligar':lang==='fr'?'Appeler':'Llamar'}</span></a>` : '';
-  const starHtml = p.stars ? `<span class="stars">★ ${p.stars}</span>` : '';
-  const walkBadge = p.walk ? `<span class="badge ${parseInt(p.walk)>10?'ba':'bg'}">${p.walk}</span>` : '';
+  const tip = p[lang] || p.es;
+  const dirBtn = p.map ? `<a class="map-btn" href="${p.map}" target="_blank">${NAV} ${UI[lang].directions}</a>` : '';
+  const callBtn = p.phone ? `<a class="call-btn" href="tel:${p.phone}">${CALL} ${UI[lang].call}</a>` : '';
+  const stars = p.stars ? `<span class="stars">★ ${p.stars}</span>` : '';
+  const walkBadge = p.walk ? `<span class="badge ${p.walk.includes('15')||p.walk.includes('20')||p.walk.includes('25')?'ba':'bg'}">${p.walk}</span>` : '';
   const addrBadge = p.addr ? `<span class="badge bx">${p.addr}</span>` : '';
-  return `<div class="card"><div class="card-icon ${p.ci}">${p.icon}</div><div class="card-body"><div class="card-name">${p.name}</div><div class="card-meta">${starHtml}${walkBadge}${addrBadge}</div><p class="card-tip">${tip}</p><div class="btns">${dirBtn}${callBtn}</div></div></div>`;
+  return `<div class="card"><div class="card-icon ${p.ci}">${p.icon}</div><div class="card-body"><div class="card-name">${p.name}</div><div class="card-meta">${stars}${walkBadge}${addrBadge}</div><p class="card-tip">${tip}</p><div class="btns">${dirBtn}${callBtn}</div></div></div>`;
 }
 
-function renderAllStaticCards(lang) {
-  const sets = {
-    'rest-static': STATIC_PLACES.restaurantes,
-    'cafes-static': STATIC_PLACES.cafes,
-    'pizzas-static': STATIC_PLACES.pizzas,
-    'burgers-static': STATIC_PLACES.burgers,
-    'sushi-static': STATIC_PLACES.sushi,
-    'heladerias-static': STATIC_PLACES.heladerias,
-    'bares-static': STATIC_PLACES.bares,
-    'supers-24': STATIC_PLACES.supers_24,
-    'supers-normal': STATIC_PLACES.supers_normal,
-    'farmacias-static': STATIC_PLACES.farmacias,
-    'traslados-static': STATIC_PLACES.traslados,
-    'paseos-static': STATIC_PLACES.paseos,
-    'urgencias-static': STATIC_PLACES.urgencias,
-  };
-  Object.entries(sets).forEach(([id, places]) => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = places.map(p => buildCard(p, lang)).join('');
+function renderStatic(lang) {
+  const sets = {'rest-static':P.restaurantes,'cafes-static':P.cafes,'pizzas-static':P.pizzas,'burgers-static':P.burgers,'sushi-static':P.sushi,'heladerias-static':P.heladerias,'bares-static':P.bares,'supers-24':P.supers_24,'supers-normal':P.supers_normal,'farmacias-static':P.farmacias,'traslados-static':P.traslados,'paseos-static':P.paseos,'urgencias-static':P.urgencias};
+  Object.entries(sets).forEach(([id,places])=>{
+    const el=document.getElementById(id);
+    if(el) el.innerHTML=places.map(p=>buildCard(p,lang)).join('');
   });
 }
 
-// ── AI TRANSLATION ────────────────────────────────────────────────────────────
-const LANG_NAMES = {en:'English',pt:'Portuguese',fr:'French'};
-
-async function translateAllTips(lang) {
-  if (lang === 'es') { renderAllStaticCards('es'); applyUITranslations('es'); return; }
-  if (tipCache[lang]) { renderAllStaticCards(lang); applyUITranslations(lang); return; }
-
-  const overlay = document.getElementById('trans-overlay');
-  const msg = document.getElementById('trans-msg');
-  overlay.style.display = 'flex';
-  const langName = LANG_NAMES[lang];
-  msg.textContent = `Translating to ${langName}...`;
-
-  // collect all tips
-  const allPlaces = [
-    ...STATIC_PLACES.restaurantes, ...STATIC_PLACES.cafes, ...STATIC_PLACES.pizzas,
-    ...STATIC_PLACES.burgers, ...STATIC_PLACES.sushi, ...STATIC_PLACES.heladerias,
-    ...STATIC_PLACES.bares, ...STATIC_PLACES.supers_24, ...STATIC_PLACES.supers_normal,
-    ...STATIC_PLACES.farmacias, ...STATIC_PLACES.traslados, ...STATIC_PLACES.paseos,
-    ...STATIC_PLACES.urgencias
-  ];
-
-  const payload = allPlaces.map(p => ({name: p.name, tip: p.tip_es}));
-
-  const prompt = `Translate these place descriptions to ${langName}. Return ONLY valid JSON array, no markdown, no explanation. Keep proper nouns (place names, street names) as-is. Input: ${JSON.stringify(payload)}`;
-
-  try {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 4000,
-        messages: [{role:'user', content: prompt}]
-      })
-    });
-    const data = await r.json();
-    const raw = data.content?.[0]?.text || '[]';
-    const clean = raw.replace(/```json|```/g,'').trim();
-    const translated = JSON.parse(clean);
-    tipCache[lang] = {};
-    translated.forEach(item => { tipCache[lang][item.name] = item.tip; });
-  } catch(e) {
-    console.warn('Translation failed, using Spanish');
-    tipCache[lang] = {};
-  }
-
-  overlay.style.display = 'none';
-  renderAllStaticCards(lang);
-  applyUITranslations(lang);
+function renderCustom() {
+  const cats=['restaurantes','cafes','pizzas','burgers','sushi','heladerias','bares','supers','farmacias','traslados','paseos','urgencias','inicio'];
+  cats.forEach(cat=>{
+    const el=document.getElementById('custom-'+cat);
+    if(!el) return;
+    const places=(cfg.places||[]).filter(p=>p.cat===cat);
+    el.innerHTML=places.map(p=>{
+      const dirBtn=p.map?`<a class="map-btn" href="${p.map}" target="_blank">${NAV} ${UI[currentLang].directions}</a>`:'';
+      const callBtn=p.phone?`<a class="call-btn" href="tel:${p.phone}">${CALL} ${UI[currentLang].call}</a>`:'';
+      const addrBadge=p.addr?`<span class="badge bx">${p.addr}</span>`:'';
+      return `<div class="card"><div class="card-icon ci-g">${I_PIN}</div><div class="card-body"><div class="card-name">${p.name}</div><div class="card-meta">${addrBadge}</div><p class="card-tip">${p.tip||''}</p><div class="btns">${dirBtn}${callBtn}</div></div></div>`;
+    }).join('');
+  });
 }
 
-// ── UI TRANSLATIONS ───────────────────────────────────────────────────────────
-const UI = {
-  es:{welcome:'Bienvenido/a',h1:'Tu guía <em>local</em>',tab0:'Inicio',tab1:'Restaurantes',tab2:'Cafés',tab3:'Pizzerías',tab4:'Burgers',tab5:'Sushi & Asia',tab6:'Heladerías',tab7:'Bares',tab8:'Supers',tab9:'Farmacias',tab10:'Traslados',tab11:'Paseos',tab12:'Urgencias',aptinfo:'Info del departamento',contact:'Contacto del anfitrión',walabel:'WhatsApp',wamsg:'Escribir mensaje',responds:'Responde en',resptime:'Menos de 1 hora',attention:'Atención',atthours:'Las 24 hs',howarrive:'Cómo llegar',addrlabel:'Dirección',city:'Ciudad',openmaps:'Abrir en Google Maps',pdf:'Compartir PDF',secbodegones:'Bodegones & Parrillas',seccoffee:'Specialty coffee',secpizza:'Las mejores de La Plata',secburgers:'Las mejores hamburguesas',secsushi:'Sushi & Cocina asiática',sechela:'Heladerías',secbares:'Bares & Cervecerías',sec24:'Abiertos 24 hs',secnormal:'Horario normal',farmduty:'Farmacias de turno',farmtip:'Las farmacias rotan guardias. Buscá la de turno en colfarmalp.org.ar',moverse:'Moverse en La Plata',secremises:'Remises recomendados',descubrir:'La Plata para descubrir',secnature:'Naturaleza & aire libre',emergency:'Números de emergencia',emerg:'Emergencias',fire:'Bomberos',same:'SAME',police:'Policía',secmedurg:'Urgencias médicas',trasladostips:'Uber y Cabify funcionan normalmente|Remises: opción local más usada y confiable|Terminal de ómnibus: ~15 min en remis|Tren a Buenos Aires: ~20 min a pie',paseostips:'La Catedral y Plaza Moreno están a ~10 min a pie|El Bosque y el Museo de Ciencias Naturales, imperdibles|Ciudad en cuadrícula diagonal, fácil de recorrer a pie|Rooftop de La Sorbetiere: mejor atardecer de la ciudad'},
-  en:{welcome:'Welcome',h1:'Your <em>local</em> guide',tab0:'Home',tab1:'Restaurants',tab2:'Cafés',tab3:'Pizzerias',tab4:'Burgers',tab5:'Sushi & Asia',tab6:'Ice Cream',tab7:'Bars',tab8:'Markets',tab9:'Pharmacies',tab10:'Transport',tab11:'Sightseeing',tab12:'Emergencies',aptinfo:'Apartment info',contact:'Host contact',walabel:'WhatsApp',wamsg:'Send message',responds:'Response time',resptime:'Under 1 hour',attention:'Support',atthours:'24/7',howarrive:'How to get here',addrlabel:'Address',city:'City',openmaps:'Open in Google Maps',pdf:'Share PDF',secbodegones:'Steakhouses & Grills',seccoffee:'Specialty coffee',secpizza:'Best pizzas in La Plata',secburgers:'Best burgers',secsushi:'Sushi & Asian cuisine',sechela:'Ice cream shops',secbares:'Bars & Breweries',sec24:'Open 24 hours',secnormal:'Regular hours',farmduty:'On-duty pharmacies',farmtip:'Pharmacies rotate on-call. Check colfarmalp.org.ar for the current one',moverse:'Getting around La Plata',secremises:'Recommended remises',descubrir:'La Plata highlights',secnature:'Nature & outdoors',emergency:'Emergency numbers',emerg:'Emergencies',fire:'Fire dept.',same:'Ambulance',police:'Police',secmedurg:'Medical emergencies',trasladostips:'Uber and Cabify work normally|Remises (local cabs) are reliable and widely used|Bus terminal: ~15 min by remis|Train to Buenos Aires: ~20 min walk',paseostips:'Cathedral & Plaza Moreno are ~10 min walk|El Bosque park and Natural History Museum, unmissable|Perfect diagonal grid city, great for walking|La Sorbetiere rooftop: best sunset view in the city'},
-  pt:{welcome:'Bem-vindo/a',h1:'Seu guia <em>local</em>',tab0:'Início',tab1:'Restaurantes',tab2:'Cafés',tab3:'Pizzarias',tab4:'Hambúrgueres',tab5:'Sushi & Ásia',tab6:'Sorveterias',tab7:'Bares',tab8:'Mercados',tab9:'Farmácias',tab10:'Transporte',tab11:'Passeios',tab12:'Emergências',aptinfo:'Info do apartamento',contact:'Contato do anfitrião',walabel:'WhatsApp',wamsg:'Enviar mensagem',responds:'Responde em',resptime:'Menos de 1 hora',attention:'Atendimento',atthours:'24 horas',howarrive:'Como chegar',addrlabel:'Endereço',city:'Cidade',openmaps:'Abrir no Google Maps',pdf:'Compartilhar PDF',secbodegones:'Churrascarias & Grelhados',seccoffee:'Café especial',secpizza:'Melhores pizzas de La Plata',secburgers:'Melhores hambúrgueres',secsushi:'Sushi & Cozinha asiática',sechela:'Sorveterias',secbares:'Bares & Cervejarias',sec24:'Abertos 24h',secnormal:'Horário normal',farmduty:'Farmácias de plantão',farmtip:'As farmácias se revezam. Consulte colfarmalp.org.ar',moverse:'Como se locomover em La Plata',secremises:'Remises recomendados',descubrir:'La Plata para descobrir',secnature:'Natureza & ar livre',emergency:'Números de emergência',emerg:'Emergências',fire:'Bombeiros',same:'SAMU',police:'Polícia',secmedurg:'Urgências médicas',trasladostips:'Uber e Cabify funcionam normalmente|Remises (táxis locais) são confiáveis|Terminal de ônibus: ~15 min de remis|Trem para Buenos Aires: ~20 min a pé',paseostips:'Catedral e Plaza Moreno a ~10 min a pé|O Bosque e o Museu de Ciências Naturais, imperdíveis|Cidade em grade diagonal, fácil de percorrer a pé|Rooftop de La Sorbetiere: melhor pôr do sol da cidade'},
-  fr:{welcome:'Bienvenue',h1:'Votre guide <em>local</em>',tab0:'Accueil',tab1:'Restaurants',tab2:'Cafés',tab3:'Pizzerias',tab4:'Burgers',tab5:'Sushi & Asie',tab6:'Glaces',tab7:'Bars',tab8:'Supermarchés',tab9:'Pharmacies',tab10:'Transport',tab11:'Visites',tab12:'Urgences',aptinfo:"Info sur l'appartement",contact:"Contact de l'hôte",walabel:'WhatsApp',wamsg:'Envoyer un message',responds:'Temps de réponse',resptime:"Moins d'1 heure",attention:'Assistance',atthours:'24h/24',howarrive:'Comment arriver',addrlabel:'Adresse',city:'Ville',openmaps:'Ouvrir dans Google Maps',pdf:'Partager PDF',secbodegones:'Grillades & Bodegones',seccoffee:'Café de spécialité',secpizza:'Meilleures pizzas de La Plata',secburgers:'Meilleurs burgers',secsushi:'Sushi & Cuisine asiatique',sechela:'Glaciers',secbares:'Bars & Brasseries',sec24:'Ouverts 24h/24',secnormal:'Horaires normaux',farmduty:'Pharmacies de garde',farmtip:'Les pharmacies tournent. Consultez colfarmalp.org.ar',moverse:'Se déplacer à La Plata',secremises:'Remises recommandés',descubrir:'La Plata à découvrir',secnature:'Nature & plein air',emergency:"Numéros d'urgence",emerg:'Urgences',fire:'Pompiers',same:'SAMU',police:'Police',secmedurg:'Urgences médicales',trasladostips:'Uber et Cabify fonctionnent normalement|Les remises (taxis locaux) sont fiables|Terminal de bus: ~15 min en remis|Train vers Buenos Aires: ~20 min à pied',paseostips:'Cathédrale et Plaza Moreno à ~10 min à pied|El Bosque et le Musée d\'Histoire Naturelle, incontournables|Ville en grille diagonale, facile à parcourir à pied|Rooftop de La Sorbetiere: meilleur coucher de soleil de la ville'},
-};
-
-function applyUITranslations(lang) {
-  const t = UI[lang];
-  document.getElementById('t-welcome').textContent = t.welcome;
-  document.getElementById('t-h1').innerHTML = t.h1;
-  for(let i=0;i<=12;i++) { const el=document.getElementById('t-tab'+i); if(el) el.textContent=t['tab'+i]; }
+function applyUI(lang) {
+  const t=UI[lang];
+  document.getElementById('t-welcome').textContent=t.welcome;
+  document.getElementById('t-h1').innerHTML=t.h1;
+  t.tabs.forEach((tab,i)=>{const el=document.getElementById('t-tab'+i);if(el)el.textContent=tab;});
   document.getElementById('t-aptinfo').textContent=t.aptinfo;
   document.getElementById('t-contact').textContent=t.contact;
-  document.getElementById('t-wa-label').textContent=t.walabel;
-  const waMsg=document.getElementById('wa-link'); if(waMsg.tagName==='A') waMsg.textContent=t.wamsg;
+  document.getElementById('t-walabel').textContent=t.walabel;
+  const wa=document.getElementById('wa-link');wa.textContent=t.wamsg;
   document.getElementById('t-responds').textContent=t.responds;
-  document.getElementById('t-resp-time').textContent=t.resptime;
+  document.getElementById('t-resptime').textContent=t.resptime;
   document.getElementById('t-attention').textContent=t.attention;
-  document.getElementById('t-att-hours').textContent=t.atthours;
+  document.getElementById('t-atthours').textContent=t.atthours;
   document.getElementById('t-howarrive').textContent=t.howarrive;
-  document.getElementById('t-addr-label').textContent=t.addrlabel;
+  document.getElementById('t-addrlabel').textContent=t.addrlabel;
   document.getElementById('t-city').textContent=t.city;
   document.getElementById('t-openmaps').textContent=t.openmaps;
   document.getElementById('t-pdf').textContent=t.pdf;
-  document.getElementById('t-sec-bodegones').textContent=t.secbodegones;
-  document.getElementById('t-sec-coffee').textContent=t.seccoffee;
+  document.getElementById('t-sec-rest').textContent=t.secrest;
+  document.getElementById('t-sec-cafe').textContent=t.seccafe;
   document.getElementById('t-sec-pizza').textContent=t.secpizza;
-  document.getElementById('t-sec-burgers').textContent=t.secburgers;
+  document.getElementById('t-sec-burger').textContent=t.secburger;
   document.getElementById('t-sec-sushi').textContent=t.secsushi;
   document.getElementById('t-sec-hela').textContent=t.sechela;
-  document.getElementById('t-sec-bares').textContent=t.secbares;
+  document.getElementById('t-sec-bar').textContent=t.secbar;
   document.getElementById('t-sec-24').textContent=t.sec24;
   document.getElementById('t-sec-normal').textContent=t.secnormal;
   document.getElementById('t-farmduty').textContent=t.farmduty;
@@ -721,30 +758,28 @@ function applyUITranslations(lang) {
   document.getElementById('t-same').textContent=t.same;
   document.getElementById('t-police').textContent=t.police;
   document.getElementById('t-sec-medurg').textContent=t.secmedurg;
-  // tips lists
-  const tl = document.getElementById('traslados-tips'); tl.innerHTML='';
+  const tl=document.getElementById('traslados-tips');tl.innerHTML='';
   t.trasladostips.split('|').forEach(tip=>{const li=document.createElement('li');li.textContent=tip;tl.appendChild(li);});
-  const pl = document.getElementById('paseos-tips'); pl.innerHTML='';
+  const pl=document.getElementById('paseos-tips');pl.innerHTML='';
   t.paseostips.split('|').forEach(tip=>{const li=document.createElement('li');li.textContent=tip;pl.appendChild(li);});
 }
 
-// ── LANG CHANGE ───────────────────────────────────────────────────────────────
-async function changeLang(lang, btn) {
-  currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  if (lang === 'es') {
-    applyUITranslations('es');
-    renderAllStaticCards('es');
-    renderCustomCards();
-  } else {
-    await translateAllTips(lang);
-    renderCustomCards();
-  }
+function applyConfig() {
+  document.getElementById('guide-title').textContent=cfg.title||'Stay Guide';
+  const badge=document.createElement('span');badge.className='version-badge';badge.id='version-badge';
+  badge.textContent='v'+(cfg.version||'1.0.0');
+  document.getElementById('guide-title').appendChild(badge);
+  document.getElementById('addr-text').textContent=(cfg.addr||'Calle 4 entre 64 y 65')+' · La Plata';
+  document.getElementById('address-display').textContent=cfg.addr||'Calle 4 entre 64 y 65';
+  if(cfg.wa){const wa=document.getElementById('wa-link');wa.href='https://wa.me/'+cfg.wa;}
+  const tips=(cfg.tips||'').split('\n').filter(l=>l.trim());
+  const ul=document.getElementById('apt-tips-list');ul.innerHTML='';
+  tips.forEach(t=>{const li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+  renderCustom();
 }
 
-// ── TABS ──────────────────────────────────────────────────────────────────────
-function showTab(id, btn) {
+// ── NAV ───────────────────────────────────────────────────────────────────────
+function showTab(id,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -753,152 +788,13 @@ function showTab(id, btn) {
   window.scrollTo({top:0});
 }
 
-// ── CONFIG ────────────────────────────────────────────────────────────────────
-function applyConfig() {
-  document.getElementById('guide-title').textContent = cfg.title || 'Stay Guide';
-  // re-append version badge (textContent wipes it)
-  const badge = document.createElement('span');
-  badge.className = 'version-badge';
-  badge.id = 'version-badge';
-  badge.textContent = 'v' + (cfg.version || '1.0.0');
-  document.getElementById('guide-title').appendChild(badge);
-  document.getElementById('addr-text').textContent = (cfg.addr||'Calle 4 entre 64 y 65') + ' · La Plata';
-  document.getElementById('address-display').textContent = cfg.addr || 'Calle 4 entre 64 y 65';
-  if (cfg.wa) {
-    const waLink = document.getElementById('wa-link');
-    waLink.href = 'https://wa.me/' + cfg.wa;
-    waLink.textContent = UI[currentLang].wamsg || 'Escribir mensaje';
-  }
-  const tips = (cfg.tips||'').split('\n').filter(l=>l.trim());
-  const ul = document.getElementById('apt-tips-list');
-  ul.innerHTML = '';
-  tips.forEach(t=>{const li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
-  renderCustomCards();
-}
-
-// ── CUSTOM PLACES ─────────────────────────────────────────────────────────────
-function buildCustomCard(p) {
-  const dirBtn = p.map ? `<a class="map-btn" href="${p.map}" target="_blank">${NAV} <span>${UI[currentLang].tab0==='Home'?'Directions':UI[currentLang].tab0==='Início'?'Como chegar':UI[currentLang].tab0==='Accueil'?"Y aller":'Cómo llegar'}</span></a>` : '';
-  const callBtn = p.phone ? `<a class="call-btn" href="tel:${p.phone}">${CALL} <span>${UI[currentLang].tab0==='Home'?'Call':UI[currentLang].tab0==='Início'?'Ligar':UI[currentLang].tab0==='Accueil'?'Appeler':'Llamar'}</span></a>` : '';
-  const addrBadge = p.addr ? `<span class="badge bx">${p.addr}</span>` : '';
-  return `<div class="card"><div class="card-icon ci-g">${ICON_PIN}</div><div class="card-body"><div class="card-name">${p.name}</div><div class="card-meta">${addrBadge}</div><p class="card-tip">${p.tip||''}</p><div class="btns">${dirBtn}${callBtn}</div></div></div>`;
-}
-
-function renderCustomCards() {
-  const cats = ['restaurantes','cafes','pizzas','burgers','sushi','heladerias','bares','supers','farmacias','traslados','paseos','urgencias','inicio'];
-  cats.forEach(cat=>{
-    const el = document.getElementById('custom-'+cat);
-    if (!el) return;
-    const places = (cfg.places||[]).filter(p=>p.cat===cat);
-    el.innerHTML = places.map(buildCustomCard).join('');
-  });
-}
-
-// ── ADMIN ─────────────────────────────────────────────────────────────────────
-let tapCount=0, tapTimer=null;
-document.getElementById('guide-title').addEventListener('click',()=>{
-  tapCount++;
-  clearTimeout(tapTimer);
-  tapTimer = setTimeout(()=>tapCount=0, 2000);
-  if(tapCount>=5){tapCount=0;openAdmin();}
-});
-
-function openAdmin() {
-  document.getElementById('admin-panel').style.display='block';
-  if(!unlocked){
-    document.getElementById('admin-login').style.display='block';
-    document.getElementById('admin-content').style.display='none';
-    document.getElementById('admin-pw').value='';
-    document.getElementById('pw-err').style.display='none';
-  } else {
-    showAdminContent();
-  }
-}
-
-function closeAdmin() {
-  document.getElementById('admin-panel').style.display='none';
-}
-
-function checkPW() {
-  if(document.getElementById('admin-pw').value === cfg.pw){
-    unlocked=true;
-    showAdminContent();
-  } else {
-    document.getElementById('pw-err').style.display='block';
-    document.getElementById('admin-pw').value='';
-  }
-}
-
-function showAdminContent() {
-  document.getElementById('admin-login').style.display='none';
-  document.getElementById('admin-content').style.display='block';
-  document.getElementById('cfg-title').value = cfg.title||'';
-  document.getElementById('cfg-addr').value = cfg.addr||'';
-  document.getElementById('cfg-wa').value = cfg.wa||'';
-  document.getElementById('cfg-tips').value = cfg.tips||'';
-  document.getElementById('cfg-pw').value = '';
-  document.getElementById('cfg-version').value = cfg.version || '1.0.0';
-  document.getElementById('sync-status').style.display='none';
-  renderAdminList();
-}
-
-async function saveConfig() {
-  const newPw = document.getElementById('cfg-pw').value.trim();
-  if(newPw) cfg.pw = newPw;
-  cfg.title = document.getElementById('cfg-title').value.trim() || 'Stay Guide';
-  cfg.addr = document.getElementById('cfg-addr').value.trim() || 'Calle 4 entre 64 y 65';
-  cfg.wa = document.getElementById('cfg-wa').value.trim();
-  cfg.tips = document.getElementById('cfg-tips').value;
-  cfg.version = document.getElementById('cfg-version').value.trim() || cfg.version || '1.0.0';
-  applyConfig();
-  await saveToBin(); // closes admin on success
-}
-
-function bumpVersion() {
-  const current = document.getElementById('cfg-version').value || cfg.version || '1.0.0';
-  const parts = current.split('.').map(Number);
-  parts[2] = (parts[2] || 0) + 1;
-  document.getElementById('cfg-version').value = parts.join('.');
-}
-
-async function addPlace() {
-  const name = document.getElementById('new-name').value.trim();
-  const tip = document.getElementById('new-tip').value.trim();
-  if(!name || !tip){alert('Completá al menos nombre y descripción');return;}
-  cfg.places = cfg.places||[];
-  cfg.places.push({
-    id: Date.now(),
-    name, tip,
-    cat: document.getElementById('new-cat').value,
-    addr: document.getElementById('new-addr').value.trim(),
-    phone: document.getElementById('new-phone').value.trim(),
-    map: document.getElementById('new-map').value.trim()
-  });
-  renderCustomCards();
-  renderAdminList();
-  await saveToBin();
-  ['new-name','new-tip','new-addr','new-phone','new-map'].forEach(id=>document.getElementById(id).value='');
-}
-
-async function deletePlace(id) {
-  cfg.places = (cfg.places||[]).filter(p=>p.id!==id);
-  renderCustomCards();
-  renderAdminList();
-  await saveToBin();
-}
-
-function renderAdminList() {
-  const list = document.getElementById('custom-places-list');
-  if(!list) return;
-  if(!cfg.places || cfg.places.length===0){
-    list.innerHTML='<p style="font-size:13px;color:var(--text-muted)">No hay lugares personalizados aún.</p>';
-    return;
-  }
-  list.innerHTML = cfg.places.map(p=>`
-    <div class="custom-card">
-      <div class="custom-card-info">${p.name}<span>${p.cat}${p.addr?' · '+p.addr:''}</span></div>
-      <button class="del-btn" onclick="deletePlace(${p.id})">Borrar</button>
-    </div>`).join('');
+function changeLang(lang,btn){
+  currentLang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  applyUI(lang);
+  renderStatic(lang);
+  renderCustom();
 }
 
 // ── PDF ───────────────────────────────────────────────────────────────────────
@@ -911,12 +807,107 @@ function printPDF(){
   },1000);
 }
 
+// ── ADMIN ─────────────────────────────────────────────────────────────────────
+let tapCount=0,tapTimer=null;
+document.getElementById('guide-title').addEventListener('click',()=>{
+  tapCount++;clearTimeout(tapTimer);tapTimer=setTimeout(()=>tapCount=0,2000);
+  if(tapCount>=5){tapCount=0;openAdmin();}
+});
+
+function openAdmin(){
+  document.getElementById('admin-panel').style.display='block';
+  if(!unlocked){
+    document.getElementById('admin-login').style.display='block';
+    document.getElementById('admin-content').style.display='none';
+    document.getElementById('admin-pw').value='';
+    document.getElementById('pw-err').style.display='none';
+  } else { showAdminContent(); }
+}
+function closeAdmin(){ document.getElementById('admin-panel').style.display='none'; }
+function checkPW(){
+  if(document.getElementById('admin-pw').value===cfg.pw){
+    unlocked=true; showAdminContent();
+  } else {
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('admin-pw').value='';
+  }
+}
+function showAdminContent(){
+  document.getElementById('admin-login').style.display='none';
+  document.getElementById('admin-content').style.display='block';
+  document.getElementById('cfg-title').value=cfg.title||'';
+  document.getElementById('cfg-addr').value=cfg.addr||'';
+  document.getElementById('cfg-wa').value=cfg.wa||'';
+  document.getElementById('cfg-tips').value=cfg.tips||'';
+  document.getElementById('cfg-version').value=cfg.version||'1.0.0';
+  document.getElementById('cfg-pw').value='';
+  renderAdminList();
+}
+
+function bumpVersion(){
+  const parts=(document.getElementById('cfg-version').value||'1.0.0').split('.').map(Number);
+  parts[2]=(parts[2]||0)+1;
+  document.getElementById('cfg-version').value=parts.join('.');
+}
+
+// ── ADD/DELETE PLACE ──────────────────────────────────────────────────────────
+function addPlace(){
+  const name=document.getElementById('new-name').value.trim();
+  const tip=document.getElementById('new-tip').value.trim();
+  if(!name||!tip){alert('Completá nombre y descripción');return;}
+  cfg.places=cfg.places||[];
+  cfg.places.push({id:Date.now(),name,tip,cat:document.getElementById('new-cat').value,addr:document.getElementById('new-addr').value.trim(),phone:document.getElementById('new-phone').value.trim(),map:document.getElementById('new-map').value.trim()});
+  renderCustom();renderAdminList();
+  ['new-name','new-tip','new-addr','new-phone','new-map'].forEach(id=>document.getElementById(id).value='');
+}
+function deletePlace(id){
+  cfg.places=cfg.places.filter(p=>p.id!==id);
+  renderCustom();renderAdminList();
+}
+function renderAdminList(){
+  const list=document.getElementById('custom-places-list');
+  if(!list)return;
+  if(!cfg.places||!cfg.places.length){list.innerHTML='<p style="font-size:13px;color:var(--text-muted)">No hay lugares personalizados aún.</p>';return;}
+  list.innerHTML=cfg.places.map(p=>`<div class="custom-card"><div class="custom-card-info">${p.name}<span>${p.cat}${p.addr?' · '+p.addr:''}</span></div><button class="del-btn" onclick="deletePlace(${p.id})">Borrar</button></div>`).join('');
+}
+
+// ── DOWNLOAD UPDATED HTML ─────────────────────────────────────────────────────
+function downloadHTML(){
+  // Read current form values
+  const newPw=document.getElementById('cfg-pw').value.trim();
+  cfg.title=document.getElementById('cfg-title').value.trim()||'Stay Guide';
+  cfg.addr=document.getElementById('cfg-addr').value.trim()||'Calle 4 entre 64 y 65';
+  cfg.wa=document.getElementById('cfg-wa').value.trim();
+  cfg.tips=document.getElementById('cfg-tips').value;
+  cfg.version=document.getElementById('cfg-version').value.trim()||'1.0.0';
+  if(newPw) cfg.pw=newPw;
+
+  // Get current HTML and inject updated CFG + version comment
+  let html=document.documentElement.outerHTML;
+
+  // Update APP VERSION comment
+  html=html.replace(/<!-- APP VERSION: [\d.]+ -->/,'<!-- APP VERSION: '+cfg.version+' -->');
+
+  // Replace the CFG block in the script
+  const cfgStr=`const CFG = ${JSON.stringify(cfg,null,2)};`;
+  html=html.replace(/const CFG = \{[\s\S]*?\};(\s*\/\/ ──)/, cfgStr+'$1');
+
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='index.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+
+  // Apply visually
+  applyConfig();
+  closeAdmin();
+}
+
 // ── INIT ──────────────────────────────────────────────────────────────────────
-(async()=>{
-  await loadFromBin();
-  applyUITranslations('es');
-  renderAllStaticCards('es');
-})();
+applyConfig();
+applyUI('es');
+renderStatic('es');
 </script>
 </body>
 </html>
